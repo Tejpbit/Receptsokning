@@ -1,5 +1,10 @@
 package recipesearch;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JRadioButton;
+import javax.swing.border.BevelBorder;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +18,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
      */
     public RecipeSearchView() {
         initComponents();
+        lastClickedRadioButton = meatRadioButton;
     }
 
     /**
@@ -47,6 +53,8 @@ public class RecipeSearchView extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         maxTimeSpinner = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        noMainRadioButton = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -60,7 +68,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
         setTitle(bundle.getString("Application.title")); // NOI18N
         setName("applicationFrame"); // NOI18N
 
-        jSplitPane1.setDividerLocation(150);
+        jSplitPane1.setDividerLocation(160);
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sök");
@@ -74,15 +82,53 @@ public class RecipeSearchView extends javax.swing.JFrame {
 
         mainIngredientButtonGroup.add(meatRadioButton);
         meatRadioButton.setText("Kött");
+        meatRadioButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray));
+        meatRadioButton.setBorderPainted(true);
+        meatRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/meat_icon.png"))); // NOI18N
+        meatRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                meatRadioButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                meatRadioButtonMouseEntered(evt);
+            }
+        });
 
         mainIngredientButtonGroup.add(fishRadioButton);
         fishRadioButton.setText("Fisk");
+        fishRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/fish_icon.png"))); // NOI18N
+        fishRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fishRadioButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                fishRadioButtonMouseEntered(evt);
+            }
+        });
 
         mainIngredientButtonGroup.add(vegetarianRadioButton);
         vegetarianRadioButton.setText("Vegteriskt");
+        vegetarianRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/tree_icon.png"))); // NOI18N
+        vegetarianRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vegetarianRadioButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                vegetarianRadioButtonMouseEntered(evt);
+            }
+        });
 
         mainIngredientButtonGroup.add(chickenRadioButton);
         chickenRadioButton.setText("Kyckling");
+        chickenRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/Chicken_icon.png"))); // NOI18N
+        chickenRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                chickenRadioButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                chickenRadioButtonMouseEntered(evt);
+            }
+        });
 
         jLabel2.setText("Kök");
 
@@ -99,59 +145,81 @@ public class RecipeSearchView extends javax.swing.JFrame {
 
         jLabel4.setText("Max Tid");
 
-        jLabel5.setText("jLabel5");
+        jLabel5.setText("Huvudingrediens");
+
+        jLabel6.setText("Svårighetsgrad");
+
+        mainIngredientButtonGroup.add(noMainRadioButton);
+        noMainRadioButton.setText("Ej valt");
+        noMainRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/no_choice.png"))); // NOI18N
+        noMainRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                noMainRadioButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                noMainRadioButtonMouseEntered(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator2))
+                    .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cuisineComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(hardRadioButton)
-                                    .addComponent(mediumRadioButton)
-                                    .addComponent(fishRadioButton)
-                                    .addComponent(vegetarianRadioButton)
-                                    .addComponent(meatRadioButton)
-                                    .addComponent(chickenRadioButton)
-                                    .addComponent(easyRadioButton)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(maxPriceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(cuisineComboBox, 0, 93, Short.MAX_VALUE)
+                                .addGap(42, 42, 42))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(65, 65, 65))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())
+                    .addComponent(jSeparator2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(18, 18, 18)
-                                .addComponent(maxTimeSpinner)))
-                        .addContainerGap())))
+                                .addComponent(maxTimeSpinner))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(maxPriceSpinner)))
+                        .addGap(12, 12, 12))
+                    .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(hardRadioButton)
+                            .addComponent(mediumRadioButton)
+                            .addComponent(easyRadioButton)
+                            .addComponent(jLabel6)
+                            .addComponent(vegetarianRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(meatRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chickenRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(fishRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(noMainRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cuisineComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(meatRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -161,16 +229,20 @@ public class RecipeSearchView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fishRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noMainRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addGap(8, 8, 8)
                 .addComponent(easyRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mediumRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hardRadioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(maxPriceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -178,7 +250,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(maxTimeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGap(68, 68, 68))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -187,11 +259,11 @@ public class RecipeSearchView extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -231,7 +303,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -249,7 +321,70 @@ public class RecipeSearchView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cuisineComboBoxActionPerformed
 
+    private void chickenRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chickenRadioButtonMouseClicked
+        setActiveMainIngredientRadioButton(chickenRadioButton);
+    }//GEN-LAST:event_chickenRadioButtonMouseClicked
 
+    private void vegetarianRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vegetarianRadioButtonMouseClicked
+        setActiveMainIngredientRadioButton(vegetarianRadioButton);
+    }//GEN-LAST:event_vegetarianRadioButtonMouseClicked
+
+    private void meatRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatRadioButtonMouseClicked
+        setActiveMainIngredientRadioButton(meatRadioButton);
+    }//GEN-LAST:event_meatRadioButtonMouseClicked
+
+    private void fishRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fishRadioButtonMouseClicked
+        setActiveMainIngredientRadioButton(fishRadioButton);
+    }//GEN-LAST:event_fishRadioButtonMouseClicked
+
+    private void noMainRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noMainRadioButtonMouseClicked
+        setActiveMainIngredientRadioButton(noMainRadioButton);
+    }//GEN-LAST:event_noMainRadioButtonMouseClicked
+
+    private void meatRadioButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatRadioButtonMouseEntered
+        setMouseOverRadioButton(meatRadioButton);
+    }//GEN-LAST:event_meatRadioButtonMouseEntered
+
+    private void vegetarianRadioButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vegetarianRadioButtonMouseEntered
+        setMouseOverRadioButton(vegetarianRadioButton);
+    }//GEN-LAST:event_vegetarianRadioButtonMouseEntered
+
+    private void chickenRadioButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chickenRadioButtonMouseEntered
+        setMouseOverRadioButton(chickenRadioButton);
+    }//GEN-LAST:event_chickenRadioButtonMouseEntered
+
+    private void fishRadioButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fishRadioButtonMouseEntered
+        setMouseOverRadioButton(fishRadioButton);
+    }//GEN-LAST:event_fishRadioButtonMouseEntered
+
+    private void noMainRadioButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noMainRadioButtonMouseEntered
+        setMouseOverRadioButton(noMainRadioButton);
+    }//GEN-LAST:event_noMainRadioButtonMouseEntered
+
+    private void removeMouseOverRadioButton(JRadioButton btn) {
+        if (btn == lastClickedRadioButton)
+            return;
+        btn.setBorderPainted(false);
+    }
+    
+    private void setMouseOverRadioButton(JRadioButton btn) {
+        if (btn == lastClickedRadioButton)
+            return;
+        btn.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(150, 150, 150), java.awt.Color.lightGray, java.awt.Color.darkGray));
+        btn.setBorderPainted(true);
+    }
+    
+    //standard border:       BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray)
+    //active clicked border: BorderFactory.createBevelBorder(BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray)
+    //mouseover border:      BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(250, 250, 250), java.awt.Color.lightGray, java.awt.Color.darkGray)
+    
+    private void setActiveMainIngredientRadioButton(JRadioButton btn) {
+        lastClickedRadioButton.setBorderPainted(false);
+        lastClickedRadioButton = btn;
+        btn.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray));
+        btn.setBorderPainted(true);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JRadioButton chickenRadioButton;
@@ -266,6 +401,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -280,6 +416,8 @@ public class RecipeSearchView extends javax.swing.JFrame {
     private javax.swing.JSpinner maxTimeSpinner;
     private javax.swing.JRadioButton meatRadioButton;
     private javax.swing.JRadioButton mediumRadioButton;
+    private javax.swing.JRadioButton noMainRadioButton;
     private javax.swing.JRadioButton vegetarianRadioButton;
     // End of variables declaration//GEN-END:variables
+    private JRadioButton lastClickedRadioButton;
 }
