@@ -1,9 +1,9 @@
 package recipesearch;
 
-import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JRadioButton;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.Border;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -18,7 +18,13 @@ public class RecipeSearchView extends javax.swing.JFrame {
      */
     public RecipeSearchView() {
         initComponents();
-        lastClickedRadioButton = meatRadioButton;
+        lastClickedRadioButton = noMainRadioButton;
+        meatRadioButton.setBorder(standardBorder);
+        vegetarianRadioButton.setBorder(standardBorder);
+        chickenRadioButton.setBorder(standardBorder);
+        fishRadioButton.setBorder(standardBorder);
+        noMainRadioButton.setBorder(clickedBorder);
+        noMainRadioButton.setSelected(true);
     }
 
     /**
@@ -82,7 +88,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
 
         mainIngredientButtonGroup.add(meatRadioButton);
         meatRadioButton.setText("Kött");
-        meatRadioButton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray));
+        meatRadioButton.setBorder(null);
         meatRadioButton.setBorderPainted(true);
         meatRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/meat_icon.png"))); // NOI18N
         meatRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,10 +98,15 @@ public class RecipeSearchView extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 meatRadioButtonMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                meatRadioButtonMouseExited(evt);
+            }
         });
 
         mainIngredientButtonGroup.add(fishRadioButton);
         fishRadioButton.setText("Fisk");
+        fishRadioButton.setBorder(null);
+        fishRadioButton.setBorderPainted(true);
         fishRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/fish_icon.png"))); // NOI18N
         fishRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -104,10 +115,15 @@ public class RecipeSearchView extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 fishRadioButtonMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                fishRadioButtonMouseExited(evt);
+            }
         });
 
         mainIngredientButtonGroup.add(vegetarianRadioButton);
         vegetarianRadioButton.setText("Vegteriskt");
+        vegetarianRadioButton.setBorder(null);
+        vegetarianRadioButton.setBorderPainted(true);
         vegetarianRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/tree_icon.png"))); // NOI18N
         vegetarianRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -116,10 +132,15 @@ public class RecipeSearchView extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 vegetarianRadioButtonMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                vegetarianRadioButtonMouseExited(evt);
+            }
         });
 
         mainIngredientButtonGroup.add(chickenRadioButton);
         chickenRadioButton.setText("Kyckling");
+        chickenRadioButton.setBorder(null);
+        chickenRadioButton.setBorderPainted(true);
         chickenRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/Chicken_icon.png"))); // NOI18N
         chickenRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -127,6 +148,9 @@ public class RecipeSearchView extends javax.swing.JFrame {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 chickenRadioButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                chickenRadioButtonMouseExited(evt);
             }
         });
 
@@ -151,6 +175,8 @@ public class RecipeSearchView extends javax.swing.JFrame {
 
         mainIngredientButtonGroup.add(noMainRadioButton);
         noMainRadioButton.setText("Ej valt");
+        noMainRadioButton.setBorder(null);
+        noMainRadioButton.setBorderPainted(true);
         noMainRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/no_choice.png"))); // NOI18N
         noMainRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -158,6 +184,9 @@ public class RecipeSearchView extends javax.swing.JFrame {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 noMainRadioButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                noMainRadioButtonMouseExited(evt);
             }
         });
 
@@ -263,7 +292,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 713, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel2);
@@ -361,28 +390,42 @@ public class RecipeSearchView extends javax.swing.JFrame {
         setMouseOverRadioButton(noMainRadioButton);
     }//GEN-LAST:event_noMainRadioButtonMouseEntered
 
+    private void meatRadioButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatRadioButtonMouseExited
+        removeMouseOverRadioButton(meatRadioButton);
+    }//GEN-LAST:event_meatRadioButtonMouseExited
+
+    private void vegetarianRadioButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vegetarianRadioButtonMouseExited
+        removeMouseOverRadioButton(vegetarianRadioButton);
+    }//GEN-LAST:event_vegetarianRadioButtonMouseExited
+
+    private void chickenRadioButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chickenRadioButtonMouseExited
+        removeMouseOverRadioButton(chickenRadioButton);
+    }//GEN-LAST:event_chickenRadioButtonMouseExited
+
+    private void fishRadioButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fishRadioButtonMouseExited
+        removeMouseOverRadioButton(fishRadioButton);
+    }//GEN-LAST:event_fishRadioButtonMouseExited
+
+    private void noMainRadioButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noMainRadioButtonMouseExited
+        removeMouseOverRadioButton(noMainRadioButton);
+    }//GEN-LAST:event_noMainRadioButtonMouseExited
+
     private void removeMouseOverRadioButton(JRadioButton btn) {
         if (btn == lastClickedRadioButton)
             return;
-        btn.setBorderPainted(false);
+        btn.setBorder(standardBorder);
     }
     
     private void setMouseOverRadioButton(JRadioButton btn) {
         if (btn == lastClickedRadioButton)
             return;
-        btn.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(150, 150, 150), java.awt.Color.lightGray, java.awt.Color.darkGray));
-        btn.setBorderPainted(true);
+        btn.setBorder(mouseOverBorder);
     }
     
-    //standard border:       BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray)
-    //active clicked border: BorderFactory.createBevelBorder(BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray)
-    //mouseover border:      BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(250, 250, 250), java.awt.Color.lightGray, java.awt.Color.darkGray)
-    
     private void setActiveMainIngredientRadioButton(JRadioButton btn) {
-        lastClickedRadioButton.setBorderPainted(false);
+        lastClickedRadioButton.setBorder(standardBorder);
         lastClickedRadioButton = btn;
-        btn.setBorder(BorderFactory.createBevelBorder(BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray));
-        btn.setBorderPainted(true);
+        btn.setBorder(clickedBorder);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -420,4 +463,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
     private javax.swing.JRadioButton vegetarianRadioButton;
     // End of variables declaration//GEN-END:variables
     private JRadioButton lastClickedRadioButton;
+    private Border standardBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray);
+    private Border mouseOverBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.GRAY, new java.awt.Color(250, 250, 250), java.awt.Color.lightGray, java.awt.Color.darkGray);
+    private Border clickedBorder = BorderFactory.createBevelBorder(BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray);
 }
