@@ -21,7 +21,7 @@ public class RecipeController implements IRecipeSearchInputs{
 	public RecipeController() {
 		recipeSV = new RecipeSearchView(this);
 		recipeSV.setVisible(true);
-		
+		reportSearchCriteria(null, null, null, 0, 0);
 		
 	}
 
