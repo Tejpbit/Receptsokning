@@ -37,7 +37,7 @@ public class DishPanel extends javax.swing.JPanel{
 		initComponents();
     }
 	public DishPanel(){
-		this(null);
+		initComponents();
 	}
 
 	/** Setters used by controller to update view **/
