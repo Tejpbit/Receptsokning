@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="autoscrolls" type="boolean" value="true"/>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,316 +19,379 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Component id="ExpandButton" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="dishtypePanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="dishtypeLabel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="dishInfoPanel" alignment="0" max="32767" attributes="0"/>
-                  <Component id="dishImagePanel" max="32767" attributes="0"/>
-              </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="dishNameLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="ingredientsDescriptionSplitPanel" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                      <Component id="detailedViewButton" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="dishScrollPane" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="dishNameLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ingredientsDescriptionSplitPanel" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="dishImagePanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="dishtypePanel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="dishtypeLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="11" max="32767" attributes="0"/>
-                      <Component id="dishInfoPanel" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="dishScrollPane" pref="167" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="detailedViewButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="ExpandButton" min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="dishImagePanel">
+    <Container class="javax.swing.JScrollPane" name="dishScrollPane">
       <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
-          </Border>
-        </Property>
+        <Property name="verticalScrollBarPolicy" type="int" value="21"/>
       </Properties>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
-    <Component class="javax.swing.JLabel" name="dishNameLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;name&gt;"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="detailedViewButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fold"/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JPanel" name="dishInfoPanel">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
-          </Border>
-        </Property>
-      </Properties>
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="ScrollablePanel">
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="cuisineLabel" min="-2" max="-2" attributes="0"/>
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="MiscInfoPanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="difficultyLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="matchLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="priceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="timeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="dishNameLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="231" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="ingredientsDescriptionSplitPanel" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="servingsLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="dishNameLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ingredientsDescriptionSplitPanel" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="MiscInfoPanel" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="dishNameLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&lt;name&gt;"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JSplitPane" name="ingredientsDescriptionSplitPanel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="null"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
+                      <JSplitPaneConstraints position="left"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="ingredientsTextArea">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="lineWrap" type="boolean" value="true"/>
+                        <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="3st Majs&#xa;5st Lingon&#xa;8st gr&#xf6;n&#xa;En juice"/>
+                        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[4, 300]"/>
+                        </Property>
+                        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                          <Dimension value="[4, 200]"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
+                      <JSplitPaneConstraints position="right"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="descriptionTextArea">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Calibri" size="13" style="0"/>
+                        </Property>
+                        <Property name="lineWrap" type="boolean" value="true"/>
+                        <Property name="rows" type="int" value="5"/>
+                        <Property name="text" type="java.lang.String" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales orci sit amet lacus convallis tincidunt. Suspendisse lacinia ultrices urna eget euismod. Suspendisse ut lacu quis massa facilisis viverra et id urna. Aliquam non mattis justo. Suspendisse varius, dolor vel pharetra semper, odio quam egestas leo, eget dictum arcu odio sed felis. Nunc tincidunt nulla eu orci sollicitudin, sed vestibulum metus suscipit. Nam at dui iaculis, gravida nunc eu, fermentum elit. In ultrices tortor et risus sodales dapibus. Nulla facilisi. Integer laoreet, mi in ornare sollicitudin, odio est laoreet turpis, et vehicula sapien nulla in arcu. Vivamus vitae est elementum, condimentum nisl a, aliquet purus. Etiam at elit orci. Morbi eu adipiscing elit, at accumsan arcu.&#xa;&#xa;Pellentesque sodales ipsum in sapien volutpat scelerisque. Sed dignissim lacinia magna, eget dignissim felis. Duis fermentum porttitor tempus. Mauris consectetur vestibulum elit sit amet facilisis. Vestibulum tempus blandit ornare. Nam id mattis dolor. Donec semper, nisi id viverra scelerisque, tortor diam interdum purus, in tempor erat leo et mi. Etiam vehicula nisi metus, a convallis ipsum elementum eget. Vestibulum blandit diam arcu, non vehicula turpis fermentum vitae.&#xa;&#xa;Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sed feugiat massa. Morbi condimentum ante in enim congue semper. Maecenas dictum dolor nec dui dignissim, quis tincidunt leo laoreet. Nunc venenatis arcu ac enim elementum congue. Pellentesque fermentum magna arcu, nec dapibus lacus mollis quis. Nullam aliquam laoreet justo, at ullamcorper mi dignissim nec. Sed sit amet mollis erat, vitae pretium neque. Donec at velit in sem laoreet tristique sit amet vel sem. Vestibulum mauris leo, molestie non nunc id, bibendum feugiat arcu. Duis lobortis risus diam, id vulputate neque dignissim blandit. Curabitur bibendum tellus ut elit tincidunt, a blandit odio blandit. Morbi eu neque in diam placerat pulvinar. Vestibulum aliquet vitae libero non egestas.&#xa;&#xa;Ut eleifend id nibh nec egestas. Sed sit amet tincidunt felis. Praesent dolor nunc, venenatis id fringilla sed, feugiat ut nisi. Vestibulum rhoncus, ante non venenatis feugiat, elit urna dictum turpis, vel rutrum nulla diam non massa. Nullam eget ipsum nec urna aliquam pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac lectus vestibulum, bibendum turpis vitae, euismod arcu. Sed in nibh et arcu rutrum facilisis vel et lorem. Nullam quis dolor ultrices, pretium sapien luctus, tristique nulla. Fusce vehicula nisi orci, sed aliquet enim lobortis ac. Ut ac nibh vitae mi lobortis pellentesque. Nam eu tincidunt sem, eget hendrerit est. Quisque ac auctor ante. Sed et scelerisque sapien.&#xa;&#xa;Aliquam volutpat, mauris non rhoncus convallis, mauris felis fringilla justo, vel iaculis arcu odio vitae dolor. Donec a auctor lacus, non imperdiet risus. Ut cursus fringilla eros, vitae dignissim lectus faucibus eget. Cras id arcu diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultricies risus in ante pellentesque lobortis. Aenean dignissim risus id arcu tincidunt ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus urna diam, euismod in massa vel, tincidunt suscipit nisl. In luctus commodo arcu, in bibendum sapien consequat at. Fusce dapibus, sapien ac laoreet molestie, justo tellus consectetur risus, sed varius turpis diam et nibh."/>
+                        <Property name="toolTipText" type="java.lang.String" value="Recipe description"/>
+                        <Property name="autoscrolls" type="boolean" value="false"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="null"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JPanel" name="MiscInfoPanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="dishImagePanel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="dishtypePanel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="dishtypeLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="13" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="dishInfoPanel" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="servingsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="dishImagePanel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="dishtypePanel" min="-2" max="-2" attributes="0"/>
+                              <Component id="dishtypeLabel" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dishInfoPanel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cuisineLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="difficultyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="matchLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="timeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="servingsLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Servings"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="matchLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Match"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="cuisineLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cuisine"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="difficultyLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Difficulty"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="priceLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Price"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="timeLabel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Time"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel10">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="5st"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel11">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Svenskt"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel12">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="L&#xe4;tt"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel13">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="75%"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel14">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="35kr"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel15">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="25m"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="dishtypePanel">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-            <EtchetBorder/>
-          </Border>
-        </Property>
-      </Properties>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JPanel" name="dishImagePanel">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
 
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
-    <Container class="javax.swing.JSplitPane" name="ingredientsDescriptionSplitPanel">
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="112" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
+                <Container class="javax.swing.JPanel" name="dishtypePanel">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
 
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout"/>
-      <SubComponents>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-              <JSplitPaneConstraints position="left"/>
-            </Constraint>
-          </Constraints>
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <EmptySpace min="0" pref="31" max="32767" attributes="0"/>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                </Container>
+                <Component class="javax.swing.JLabel" name="dishtypeLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="&lt;dishtype&gt;"/>
+                  </Properties>
+                </Component>
+                <Container class="javax.swing.JPanel" name="dishInfoPanel">
+                  <Properties>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                        <EtchetBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="ingredientsTextArea">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="lineWrap" type="boolean" value="true"/>
-                <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="3st Majs&#xa;5st Lingon&#xa;8st gr&#xf6;n&#xa;En juice"/>
-                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[4, 300]"/>
-                </Property>
-                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                  <Dimension value="[4, 200]"/>
-                </Property>
-              </Properties>
-            </Component>
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="cuisineLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="difficultyLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="matchLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="priceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="timeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="servingsLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="servingsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="cuisineLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="difficultyLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="matchLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="timeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="servingsLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Servings"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="matchLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Match"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="cuisineLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cuisine"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="difficultyLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Difficulty"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="priceLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Price"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="timeLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Time"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel10">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="5st"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel11">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Svenskt"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel12">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="L&#xe4;tt"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel13">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="75%"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel14">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="35kr"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel15">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="25m"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JSplitPaneSupportLayout$JSplitPaneConstraintsDescription">
-              <JSplitPaneConstraints position="right"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="descriptionTextArea">
-              <Properties>
-                <Property name="columns" type="int" value="20"/>
-                <Property name="lineWrap" type="boolean" value="true"/>
-                <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales orci sit amet lacus convallis tincidunt. Suspendisse lacinia ultrices urna eget euismod. Suspendisse ut lacu quis massa facilisis viverra et id urna. Aliquam non mattis justo. Suspendisse varius, dolor vel pharetra semper, odio quam egestas leo, eget dictum arcu odio sed felis. Nunc tincidunt nulla eu orci sollicitudin, sed vestibulum metus suscipit. Nam at dui iaculis, gravida nunc eu, fermentum elit. In ultrices tortor et risus sodales dapibus. Nulla facilisi. Integer laoreet, mi in ornare sollicitudin, odio est laoreet turpis, et vehicula sapien nulla in arcu. Vivamus vitae est elementum, condimentum nisl a, aliquet purus. Etiam at elit orci. Morbi eu adipiscing elit, at accumsan arcu.&#xa;&#xa;Pellentesque sodales ipsum in sapien volutpat scelerisque. Sed dignissim lacinia magna, eget dignissim felis. Duis fermentum porttitor tempus. Mauris consectetur vestibulum elit sit amet facilisis. Vestibulum tempus blandit ornare. Nam id mattis dolor. Donec semper, nisi id viverra scelerisque, tortor diam interdum purus, in tempor erat leo et mi. Etiam vehicula nisi metus, a convallis ipsum elementum eget. Vestibulum blandit diam arcu, non vehicula turpis fermentum vitae.&#xa;&#xa;Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sed feugiat massa. Morbi condimentum ante in enim congue semper. Maecenas dictum dolor nec dui dignissim, quis tincidunt leo laoreet. Nunc venenatis arcu ac enim elementum congue. Pellentesque fermentum magna arcu, nec dapibus lacus mollis quis. Nullam aliquam laoreet justo, at ullamcorper mi dignissim nec. Sed sit amet mollis erat, vitae pretium neque. Donec at velit in sem laoreet tristique sit amet vel sem. Vestibulum mauris leo, molestie non nunc id, bibendum feugiat arcu. Duis lobortis risus diam, id vulputate neque dignissim blandit. Curabitur bibendum tellus ut elit tincidunt, a blandit odio blandit. Morbi eu neque in diam placerat pulvinar. Vestibulum aliquet vitae libero non egestas.&#xa;&#xa;Ut eleifend id nibh nec egestas. Sed sit amet tincidunt felis. Praesent dolor nunc, venenatis id fringilla sed, feugiat ut nisi. Vestibulum rhoncus, ante non venenatis feugiat, elit urna dictum turpis, vel rutrum nulla diam non massa. Nullam eget ipsum nec urna aliquam pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac lectus vestibulum, bibendum turpis vitae, euismod arcu. Sed in nibh et arcu rutrum facilisis vel et lorem. Nullam quis dolor ultrices, pretium sapien luctus, tristique nulla. Fusce vehicula nisi orci, sed aliquet enim lobortis ac. Ut ac nibh vitae mi lobortis pellentesque. Nam eu tincidunt sem, eget hendrerit est. Quisque ac auctor ante. Sed et scelerisque sapien.&#xa;&#xa;Aliquam volutpat, mauris non rhoncus convallis, mauris felis fringilla justo, vel iaculis arcu odio vitae dolor. Donec a auctor lacus, non imperdiet risus. Ut cursus fringilla eros, vitae dignissim lectus faucibus eget. Cras id arcu diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultricies risus in ante pellentesque lobortis. Aenean dignissim risus id arcu tincidunt ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus urna diam, euismod in massa vel, tincidunt suscipit nisl. In luctus commodo arcu, in bibendum sapien consequat at. Fusce dapibus, sapien ac laoreet molestie, justo tellus consectetur risus, sed varius turpis diam et nibh."/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="dishtypeLabel">
+    <Component class="javax.swing.JToggleButton" name="ExpandButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="&lt;dishtype&gt;"/>
+        <Property name="text" type="java.lang.String" value="Ut&#xf6;ka recept"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExpandButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
