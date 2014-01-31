@@ -13,7 +13,7 @@ import se.chalmers.ait.dat215.lab2.Recipe;
  * and open the template in the editor.
  */
 
-public class RecipeSearchView extends javax.swing.JFrame implements IToggleRecipe {
+public class RecipeSearchView extends javax.swing.JFrame {
 
     /**
      * Creates new form ExampleApplicationView
@@ -543,7 +543,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements IToggleRecip
 		
 		for (Recipe r : recipeList) {
 			
-			recipeListPane.add(new DishPanel(r, this));
+			recipeListPane.add(new DishPanel(r));
 			
 		}
 		this.revalidate();
@@ -552,7 +552,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements IToggleRecip
 		recipeScrollPane.getVerticalScrollBar().setValue(0);
 	}
 	
-	
+	/*
 	@Override
 	public void setDishPanelAsMainView(DishPanel dp, boolean focusDishPanel) {
 
@@ -568,7 +568,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements IToggleRecip
 		}
 
 	}
-	
+	*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JRadioButton chickenRadioButton;

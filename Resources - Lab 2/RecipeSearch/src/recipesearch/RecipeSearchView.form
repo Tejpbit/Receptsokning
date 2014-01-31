@@ -281,7 +281,6 @@
                   <ComponentRef name="mainIngredientButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Vegetarisk"/>
-                <Property name="actionCommand" type="java.lang.String" value="Vegetarisk"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -342,7 +341,6 @@
                   <ComponentRef name="difficulityButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mellan"/>
-                <Property name="actionCommand" type="java.lang.String" value="Mellan"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mediumRadioButtonMouseClicked"/>
