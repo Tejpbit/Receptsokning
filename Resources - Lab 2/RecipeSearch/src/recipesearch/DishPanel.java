@@ -5,14 +5,16 @@
  */
 
 package recipesearch;
+import java.util.List;
 import javax.swing.*;
+import se.chalmers.ait.dat215.lab2.*;
 
 /**
  *
  * @author Kuxe
  */
 public class DishPanel extends javax.swing.JPanel {
-
+	Recipe test;
     /**
      * Creates new form DishPanel
      */
@@ -20,6 +22,51 @@ public class DishPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+	/** Setters used by controller to update view **/
+	public void setImage(ImageIcon image){
+		dishImage = new JLabel(image);
+	}
+	public void setTypeIcon(ImageIcon image){
+		dishTypeIcon = new JLabel(image);
+	}
+	public void setType(String string){
+		dishtypeLabel.setText(string);
+	}
+	public void setServings(int quantity){
+		servingsDataLabel.setText("" + quantity + "st");
+	}
+	public void setCuisine(String cuisine){
+		cuisineDataLabel.setText(cuisine);
+	}
+	public void setDifficulty(String difficulty){
+		difficultyDataLabel.setText(difficulty);
+	}
+	public void setMatch(int procent){
+		matchDataLabel.setText("" + procent + "%");
+	}
+	public void setPrice(int price){
+		priceDataLabel.setText("" + price + "kr");
+	}
+	public void setTime(int time){
+		timeDataLabel.setText("" + time + "m");
+	}
+	public void setName(String name){
+		dishNameLabel.setText(name);
+	}
+	public void setIngredients(List<Ingredient> ingredients){
+		String ingredientsText = "";
+		for(Ingredient ingredient : ingredients){
+			ingredientsText.concat("\n" + ingredient.getName() + ": "+
+					ingredient.getUnit());
+			
+		}
+		ingredientsTextArea.setText(ingredientsText);
+	}
+	public void setDescription(String string){
+		descriptionTextArea.setText(string);
+	}
+	
+	
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,13 +80,11 @@ public class DishPanel extends javax.swing.JPanel {
         ScrollablePanel = new javax.swing.JPanel();
         dishNameLabel = new javax.swing.JLabel();
         ingredientsDescriptionSplitPanel = new javax.swing.JSplitPane();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        ingredientsSplit = new javax.swing.JScrollPane();
         ingredientsTextArea = new javax.swing.JTextArea();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        descriptionSplit = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
         MiscInfoPanel = new javax.swing.JPanel();
-        dishImagePanel = new javax.swing.JPanel();
-        dishtypePanel = new javax.swing.JPanel();
         dishtypeLabel = new javax.swing.JLabel();
         dishInfoPanel = new javax.swing.JPanel();
         servingsLabel = new javax.swing.JLabel();
@@ -48,12 +93,14 @@ public class DishPanel extends javax.swing.JPanel {
         difficultyLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
         timeLabel = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        servingsDataLabel = new javax.swing.JLabel();
+        cuisineDataLabel = new javax.swing.JLabel();
+        difficultyDataLabel = new javax.swing.JLabel();
+        matchDataLabel = new javax.swing.JLabel();
+        priceDataLabel = new javax.swing.JLabel();
+        timeDataLabel = new javax.swing.JLabel();
+        dishImage = new javax.swing.JLabel();
+        dishTypeIcon = new javax.swing.JLabel();
         ExpandButton = new javax.swing.JToggleButton();
 
         setAutoscrolls(true);
@@ -70,9 +117,9 @@ public class DishPanel extends javax.swing.JPanel {
         ingredientsTextArea.setText("3st Majs\n5st Lingon\n8st grön\nEn juice");
         ingredientsTextArea.setMaximumSize(new java.awt.Dimension(4, 300));
         ingredientsTextArea.setMinimumSize(new java.awt.Dimension(4, 200));
-        jScrollPane2.setViewportView(ingredientsTextArea);
+        ingredientsSplit.setViewportView(ingredientsTextArea);
 
-        ingredientsDescriptionSplitPanel.setLeftComponent(jScrollPane2);
+        ingredientsDescriptionSplitPanel.setLeftComponent(ingredientsSplit);
 
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setColumns(20);
@@ -83,35 +130,9 @@ public class DishPanel extends javax.swing.JPanel {
         descriptionTextArea.setToolTipText("Recipe description");
         descriptionTextArea.setAutoscrolls(false);
         descriptionTextArea.setBorder(null);
-        jScrollPane1.setViewportView(descriptionTextArea);
+        descriptionSplit.setViewportView(descriptionTextArea);
 
-        ingredientsDescriptionSplitPanel.setRightComponent(jScrollPane1);
-
-        dishImagePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        javax.swing.GroupLayout dishImagePanelLayout = new javax.swing.GroupLayout(dishImagePanel);
-        dishImagePanel.setLayout(dishImagePanelLayout);
-        dishImagePanelLayout.setHorizontalGroup(
-            dishImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 112, Short.MAX_VALUE)
-        );
-        dishImagePanelLayout.setVerticalGroup(
-            dishImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        dishtypePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        javax.swing.GroupLayout dishtypePanelLayout = new javax.swing.GroupLayout(dishtypePanel);
-        dishtypePanel.setLayout(dishtypePanelLayout);
-        dishtypePanelLayout.setHorizontalGroup(
-            dishtypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 31, Short.MAX_VALUE)
-        );
-        dishtypePanelLayout.setVerticalGroup(
-            dishtypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 31, Short.MAX_VALUE)
-        );
+        ingredientsDescriptionSplitPanel.setRightComponent(descriptionSplit);
 
         dishtypeLabel.setText("<dishtype>");
 
@@ -129,17 +150,17 @@ public class DishPanel extends javax.swing.JPanel {
 
         timeLabel.setText("Time");
 
-        jLabel10.setText("5st");
+        servingsDataLabel.setText("5st");
 
-        jLabel11.setText("Svenskt");
+        cuisineDataLabel.setText("Svenskt");
 
-        jLabel12.setText("Lätt");
+        difficultyDataLabel.setText("Lätt");
 
-        jLabel13.setText("75%");
+        matchDataLabel.setText("75%");
 
-        jLabel14.setText("35kr");
+        priceDataLabel.setText("35kr");
 
-        jLabel15.setText("25m");
+        timeDataLabel.setText("25m");
 
         javax.swing.GroupLayout dishInfoPanelLayout = new javax.swing.GroupLayout(dishInfoPanel);
         dishInfoPanel.setLayout(dishInfoPanelLayout);
@@ -156,12 +177,12 @@ public class DishPanel extends javax.swing.JPanel {
                     .addComponent(servingsLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dishInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15))
+                    .addComponent(servingsDataLabel)
+                    .addComponent(cuisineDataLabel)
+                    .addComponent(difficultyDataLabel)
+                    .addComponent(matchDataLabel)
+                    .addComponent(priceDataLabel)
+                    .addComponent(timeDataLabel))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         dishInfoPanelLayout.setVerticalGroup(
@@ -169,54 +190,58 @@ public class DishPanel extends javax.swing.JPanel {
             .addGroup(dishInfoPanelLayout.createSequentialGroup()
                 .addGroup(dishInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(servingsLabel)
-                    .addComponent(jLabel10))
+                    .addComponent(servingsDataLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dishInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cuisineLabel)
-                    .addComponent(jLabel11))
+                    .addComponent(cuisineDataLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dishInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(difficultyLabel)
-                    .addComponent(jLabel12))
+                    .addComponent(difficultyDataLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dishInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(matchLabel)
-                    .addComponent(jLabel13))
+                    .addComponent(matchDataLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dishInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(priceLabel)
-                    .addComponent(jLabel14))
+                    .addComponent(priceDataLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dishInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(timeLabel)
-                    .addComponent(jLabel15)))
+                    .addComponent(timeDataLabel)))
         );
+
+        dishImage.setText("DISH IMAGE MISSING");
+
+        dishTypeIcon.setText("DISH ICON MISSING");
 
         javax.swing.GroupLayout MiscInfoPanelLayout = new javax.swing.GroupLayout(MiscInfoPanel);
         MiscInfoPanel.setLayout(MiscInfoPanelLayout);
         MiscInfoPanelLayout.setHorizontalGroup(
             MiscInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MiscInfoPanelLayout.createSequentialGroup()
-                .addComponent(dishImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(MiscInfoPanelLayout.createSequentialGroup()
                 .addGroup(MiscInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dishInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(MiscInfoPanelLayout.createSequentialGroup()
-                        .addComponent(dishtypePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dishtypeLabel)
-                        .addGap(0, 13, Short.MAX_VALUE))
-                    .addComponent(dishInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(MiscInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MiscInfoPanelLayout.createSequentialGroup()
+                                .addComponent(dishTypeIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dishtypeLabel))
+                            .addComponent(dishImage, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         MiscInfoPanelLayout.setVerticalGroup(
             MiscInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MiscInfoPanelLayout.createSequentialGroup()
-                .addComponent(dishImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dishImage, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MiscInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(dishtypePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dishtypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(dishtypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(dishTypeIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(dishInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(74, Short.MAX_VALUE))
@@ -294,28 +319,28 @@ public class DishPanel extends javax.swing.JPanel {
     private javax.swing.JToggleButton ExpandButton;
     private javax.swing.JPanel MiscInfoPanel;
     private javax.swing.JPanel ScrollablePanel;
+    private javax.swing.JLabel cuisineDataLabel;
     private javax.swing.JLabel cuisineLabel;
+    private javax.swing.JScrollPane descriptionSplit;
     private javax.swing.JTextArea descriptionTextArea;
+    private javax.swing.JLabel difficultyDataLabel;
     private javax.swing.JLabel difficultyLabel;
-    private javax.swing.JPanel dishImagePanel;
+    private javax.swing.JLabel dishImage;
     private javax.swing.JPanel dishInfoPanel;
     private javax.swing.JLabel dishNameLabel;
     private javax.swing.JScrollPane dishScrollPane;
+    private javax.swing.JLabel dishTypeIcon;
     private javax.swing.JLabel dishtypeLabel;
-    private javax.swing.JPanel dishtypePanel;
     private javax.swing.JSplitPane ingredientsDescriptionSplitPanel;
+    private javax.swing.JScrollPane ingredientsSplit;
     private javax.swing.JTextArea ingredientsTextArea;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel matchDataLabel;
     private javax.swing.JLabel matchLabel;
+    private javax.swing.JLabel priceDataLabel;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel servingsDataLabel;
     private javax.swing.JLabel servingsLabel;
+    private javax.swing.JLabel timeDataLabel;
     private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 }
