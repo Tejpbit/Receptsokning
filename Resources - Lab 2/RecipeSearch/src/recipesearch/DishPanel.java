@@ -28,10 +28,10 @@ public class DishPanel extends javax.swing.JPanel{
 	public DishPanel(){
 		initComponents();
 	}
-	
+
 	public void setRecipe(Recipe recipe){
 		setImage(recipe.getImage(105, 105));
-		
+
 		ImageIcon icon = null;
 		switch(recipe.getMainIngredient()){
 			case "Kött":
@@ -46,11 +46,11 @@ public class DishPanel extends javax.swing.JPanel{
 			case "Fisk":
 				icon = new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/fish_icon.png"));
 				break;
-				
+
 			default:
 				new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/no_choice.png"));
 		}
-		
+
 		setTypeIcon(icon);
 		setType(recipe.getMainIngredient());
 		setServings(recipe.getServings());
@@ -105,8 +105,8 @@ public class DishPanel extends javax.swing.JPanel{
 	public void setDescription(String string){
 		descriptionTextArea.setText(string);
 	}
-	
-	
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -354,28 +354,28 @@ public class DishPanel extends javax.swing.JPanel{
 
     private void ExpandButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExpandButtonActionPerformed
         JToggleButton btn = (JToggleButton)evt.getSource();
-		
+
 		//If maximized
 		if(btn.isSelected()){
 			btn.setText("Minimera recept");
-			
+
 			//Enable scrolling in horizontal and vertical direction when maximized 
 			dishScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 			descriptionScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 			ingredientsScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-			
+
 			dishScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 			descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 			ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		} else {
 		//Else if minimized
 			btn.setText("Utöka recept");
-			
-			
+
+
 			//Scrollback textfields
 			descriptionTextArea.setCaretPosition(0);
 			ingredientsTextArea.setCaretPosition(0);
-			
+
 			//Reset scrollbars to 0, default location
 			dishScrollPane.getHorizontalScrollBar().setValue(0);
 			dishScrollPane.getVerticalScrollBar().setValue(0);
@@ -383,7 +383,7 @@ public class DishPanel extends javax.swing.JPanel{
 			descriptionScrollPanelSplit.getVerticalScrollBar().setValue(0);
 			ingredientsScrollPanelSplit.getHorizontalScrollBar().setValue(0);
 			ingredientsScrollPanelSplit.getVerticalScrollBar().setValue(0);
-			
+
 			//Disable scrolling in horizontal and vertical direction when minimized
 			dishScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 			descriptionScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);

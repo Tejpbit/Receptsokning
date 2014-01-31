@@ -85,7 +85,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sök");
 
-        cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<ej valt>", "Svergie", "Grekland", "Indien", "Asien", "Afrika", "Frankrike" }));
+        cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<ej valt>", "Sverige", "Grekland", "Indien", "Asien", "Afrika", "Frankrike" }));
         cuisineComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cuisineComboBoxActionPerformed(evt);
@@ -127,7 +127,8 @@ public class RecipeSearchView extends javax.swing.JFrame {
         });
 
         mainIngredientButtonGroup.add(vegetarianRadioButton);
-        vegetarianRadioButton.setText("Vegteriskt");
+        vegetarianRadioButton.setText("Vegetarisk");
+        vegetarianRadioButton.setActionCommand("Vegetarisk");
         vegetarianRadioButton.setBorder(null);
         vegetarianRadioButton.setBorderPainted(true);
         vegetarianRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/tree_icon.png"))); // NOI18N
@@ -171,7 +172,8 @@ public class RecipeSearchView extends javax.swing.JFrame {
         });
 
         difficulityButtonGroup.add(mediumRadioButton);
-        mediumRadioButton.setText("Medel");
+        mediumRadioButton.setText("Mellan");
+        mediumRadioButton.setActionCommand("Mellan");
         mediumRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mediumRadioButtonMouseClicked(evt);
@@ -179,7 +181,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
         });
 
         difficulityButtonGroup.add(hardRadioButton);
-        hardRadioButton.setText("Svårt");
+        hardRadioButton.setText("Svår");
         hardRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 hardRadioButtonMouseClicked(evt);
@@ -537,7 +539,6 @@ public class RecipeSearchView extends javax.swing.JFrame {
 	}
 	
 	public void setRecipeList(List<Recipe> recipeList) {
-		
 		recipeListPane.removeAll();
 		
 		for (Recipe r : recipeList) {
@@ -546,8 +547,28 @@ public class RecipeSearchView extends javax.swing.JFrame {
 			
 		}
 		this.revalidate();
+		
+		recipeScrollPane.getHorizontalScrollBar().setValue(0);
+		recipeScrollPane.getVerticalScrollBar().setValue(0);
 	}
 	
+	/*
+	@Override
+	public void setDishPanelAsMainView(DishPanel dp, boolean focusDishPanel) {
+
+		if (focusDishPanel) {
+			recipeScrollPane.remove(recipeListPane); // TODO detta funkar dass
+			recipeScrollPane.revalidate();
+			recipeScrollPane.add(new DishPanel(dp.getre));
+			System.out.println("Focus on Recipe");
+		} else {
+			//recipeScrollPane.remove(dp);
+			recipeScrollPane.add(recipeListPane);
+			System.out.println("Focus on List");
+		}
+
+	}
+	*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JRadioButton chickenRadioButton;
