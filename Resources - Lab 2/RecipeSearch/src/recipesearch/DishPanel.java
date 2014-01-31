@@ -13,8 +13,7 @@ import se.chalmers.ait.dat215.lab2.*;
  *
  * @author Kuxe
  */
-public class DishPanel extends javax.swing.JPanel {
-	Recipe test;
+public class DishPanel extends javax.swing.JPanel{
     /**
      * Creates new form DishPanel
      */
