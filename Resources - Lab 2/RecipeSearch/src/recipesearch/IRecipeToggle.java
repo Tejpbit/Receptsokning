@@ -10,6 +10,6 @@ package recipesearch;
  *
  * @author André
  */
-public interface IRecepieToggle {
+public interface IRecipeToggle {
 	public void toggleRecipe(DishPanel dp);
 }

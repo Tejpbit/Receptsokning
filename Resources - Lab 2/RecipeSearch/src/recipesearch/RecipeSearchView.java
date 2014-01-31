@@ -1,6 +1,5 @@
 package recipesearch;
 
-import java.awt.Color;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JRadioButton;
@@ -116,14 +115,14 @@ public class RecipeSearchView extends javax.swing.JFrame {
         fishRadioButton.setBorderPainted(true);
         fishRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/fish_icon.png"))); // NOI18N
         fishRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                fishRadioButtonMouseExited(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fishRadioButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 fishRadioButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                fishRadioButtonMouseExited(evt);
             }
         });
 
@@ -133,14 +132,14 @@ public class RecipeSearchView extends javax.swing.JFrame {
         vegetarianRadioButton.setBorderPainted(true);
         vegetarianRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/tree_icon.png"))); // NOI18N
         vegetarianRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                vegetarianRadioButtonMouseExited(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 vegetarianRadioButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 vegetarianRadioButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                vegetarianRadioButtonMouseExited(evt);
             }
         });
 
@@ -150,14 +149,14 @@ public class RecipeSearchView extends javax.swing.JFrame {
         chickenRadioButton.setBorderPainted(true);
         chickenRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/Chicken_icon.png"))); // NOI18N
         chickenRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                chickenRadioButtonMouseExited(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 chickenRadioButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 chickenRadioButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                chickenRadioButtonMouseExited(evt);
             }
         });
 
@@ -189,6 +188,13 @@ public class RecipeSearchView extends javax.swing.JFrame {
 
         jLabel3.setText("Max Pris(kr)");
 
+        maxPriceSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(5)));
+        maxPriceSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                maxPriceSpinnerStateChanged(evt);
+            }
+        });
+
         jLabel4.setText("Max Tid(m)");
 
         maxTimeSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 150, 10));
@@ -219,11 +225,6 @@ public class RecipeSearchView extends javax.swing.JFrame {
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 noMainRadioButtonMouseEntered(evt);
-            }
-        });
-        noMainRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                noMainRadioButtonActionPerformed(evt);
             }
         });
 
@@ -309,7 +310,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(easyRadioButton)
+                .addComponent(easyRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(mediumRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -396,31 +397,6 @@ public class RecipeSearchView extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
-    private void cuisineComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuisineComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cuisineComboBoxActionPerformed
-
-    private void chickenRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chickenRadioButtonMouseClicked
-        setActiveMainIngredient(chickenRadioButton);
-    }//GEN-LAST:event_chickenRadioButtonMouseClicked
-
-    private void vegetarianRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vegetarianRadioButtonMouseClicked
-        setActiveMainIngredient(vegetarianRadioButton);
-    }//GEN-LAST:event_vegetarianRadioButtonMouseClicked
-
-    private void meatRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatRadioButtonMouseClicked
-        setActiveMainIngredient(meatRadioButton);
-    }//GEN-LAST:event_meatRadioButtonMouseClicked
-
-    private void fishRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fishRadioButtonMouseClicked
-        setActiveMainIngredient(fishRadioButton);
-    }//GEN-LAST:event_fishRadioButtonMouseClicked
-
-    private void noMainRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noMainRadioButtonMouseClicked
-        setActiveMainIngredient(noMainRadioButton);
-		currentMainIngredient = null;
-    }//GEN-LAST:event_noMainRadioButtonMouseClicked
-
     private void meatRadioButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatRadioButtonMouseEntered
         setMouseOverRadioButton(meatRadioButton);
     }//GEN-LAST:event_meatRadioButtonMouseEntered
@@ -471,24 +447,58 @@ public class RecipeSearchView extends javax.swing.JFrame {
     }//GEN-LAST:event_maxTimeSpinnerStateChanged
 
     private void easyRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_easyRadioButtonMouseClicked
-        setActiveDifficulity(easyRadioButton);
+		setActiveDifficulity(easyRadioButton);
+		reportSearch();
     }//GEN-LAST:event_easyRadioButtonMouseClicked
 
     private void mediumRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mediumRadioButtonMouseClicked
         setActiveDifficulity(mediumRadioButton);
+		reportSearch();
     }//GEN-LAST:event_mediumRadioButtonMouseClicked
 
     private void hardRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hardRadioButtonMouseClicked
 		setActiveDifficulity(hardRadioButton);
+		reportSearch();
     }//GEN-LAST:event_hardRadioButtonMouseClicked
 
     private void noDifficulityRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noDifficulityRadioButtonMouseClicked
         currentDifficulity = null;
+		reportSearch();
     }//GEN-LAST:event_noDifficulityRadioButtonMouseClicked
 
-    private void noMainRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_noMainRadioButtonActionPerformed
-        currentMainIngredient = null;
-    }//GEN-LAST:event_noMainRadioButtonActionPerformed
+    private void meatRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatRadioButtonMouseClicked
+        setActiveMainIngredient(meatRadioButton);
+		reportSearch();
+    }//GEN-LAST:event_meatRadioButtonMouseClicked
+
+    private void vegetarianRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vegetarianRadioButtonMouseClicked
+        setActiveMainIngredient(vegetarianRadioButton);
+		reportSearch();
+    }//GEN-LAST:event_vegetarianRadioButtonMouseClicked
+
+    private void chickenRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chickenRadioButtonMouseClicked
+        setActiveMainIngredient(chickenRadioButton);
+		reportSearch();
+    }//GEN-LAST:event_chickenRadioButtonMouseClicked
+
+    private void fishRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fishRadioButtonMouseClicked
+	setActiveMainIngredient(fishRadioButton);
+	reportSearch();
+    }//GEN-LAST:event_fishRadioButtonMouseClicked
+
+    private void noMainRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noMainRadioButtonMouseClicked
+		setActiveMainIngredient(noMainRadioButton);
+		reportSearch();
+		currentMainIngredient = null;
+    }//GEN-LAST:event_noMainRadioButtonMouseClicked
+
+    private void cuisineComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuisineComboBoxActionPerformed
+        reportSearch();
+    }//GEN-LAST:event_cuisineComboBoxActionPerformed
+
+    private void maxPriceSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_maxPriceSpinnerStateChanged
+        reportSearch();
+    }//GEN-LAST:event_maxPriceSpinnerStateChanged
 
     private void removeMouseOverRadioButton(JRadioButton btn) {
         if (btn == lastClickedRadioButton)
@@ -514,7 +524,8 @@ public class RecipeSearchView extends javax.swing.JFrame {
     }
 	
 	private void reportSearch() {
-		
+		//new SearchFilter(difficulity, maxTime, cuisine, maxPrice, mainIngredient
+		//public void reportSearchCriteria(String cuisine, String mainIngredient, String difficulity, int maxPrice, int maxTime) 
 		recipeSearchInputs.reportSearchCriteria(
 				cuisineComboBox.getSelectedItem().equals("<ej valt>") ? null : (String)cuisineComboBox.getSelectedItem(),
 				currentMainIngredient,
@@ -530,8 +541,11 @@ public class RecipeSearchView extends javax.swing.JFrame {
 		recipeListPane.removeAll();
 		
 		for (Recipe r : recipeList) {
+			
 			recipeListPane.add(new DishPanel(r));
+			
 		}
+		this.revalidate();
 	}
 	
     // Variables declaration - do not modify//GEN-BEGIN:variables

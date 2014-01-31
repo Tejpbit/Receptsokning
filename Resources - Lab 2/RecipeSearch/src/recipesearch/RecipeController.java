@@ -27,8 +27,26 @@ public class RecipeController implements IRecipeSearchInputs{
 
 	@Override
 	public void reportSearchCriteria(String cuisine, String mainIngredient, String difficulity, int maxPrice, int maxTime) {
-		List<Recipe> recipeList = db.search(new SearchFilter("Lätt", 0, "Sverige", 0, "Kött"));
+		
+		System.out.println(
+		String.format("*************\n" +
+				"Cuisine: %s\n"
+				+ "MainIngredient: %s\n"
+				+ "Difficulity: %s\n"
+				+ "MaxPrice: %d\n"
+				+ "MaxTime: %d\n"
+				+ "*****************",
+				cuisine, mainIngredient, difficulity, maxPrice, maxTime)
+		);
+		//new SearchFilter(difficulity, maxTime, cuisine, maxPrice, mainIngredient)
+		SearchFilter sf = new SearchFilter(difficulity, maxTime, cuisine, maxPrice, mainIngredient);
+		List<Recipe> recipeList = db.search(sf);
+		
+		for (Recipe RL : recipeList){
+			System.out.println("Match" + RL.getMatch());
+		}
 		System.out.println("nbrOfrecipes " + recipeList.size());
+		System.out.println(recipeSV);
 		recipeSV.setRecipeList(recipeList);
 	}
 }
