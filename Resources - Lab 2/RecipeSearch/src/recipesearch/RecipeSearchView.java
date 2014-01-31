@@ -1,5 +1,8 @@
 package recipesearch;
 
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JRadioButton;
 import javax.swing.border.BevelBorder;
@@ -168,7 +171,16 @@ public class RecipeSearchView extends javax.swing.JFrame {
 
         jLabel3.setText("Max Pris");
 
-        jLabel4.setText("Max Tid");
+        jLabel4.setText("Max Tid(m)");
+
+        maxTimeSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 150, 10));
+        maxTimeSpinner.setToolTipText("");
+        maxTimeSpinner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        maxTimeSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                maxTimeSpinnerStateChanged(evt);
+            }
+        });
 
         jLabel5.setText("Huvudingrediens");
 
@@ -202,7 +214,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(cuisineComboBox, 0, 93, Short.MAX_VALUE)
+                                .addComponent(cuisineComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(42, 42, 42))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -213,16 +225,16 @@ public class RecipeSearchView extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(maxTimeSpinner))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(maxPriceSpinner)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(maxPriceSpinner)
+                                    .addComponent(maxTimeSpinner))))
                         .addGap(12, 12, 12))
                     .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -410,6 +422,13 @@ public class RecipeSearchView extends javax.swing.JFrame {
     private void noMainRadioButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noMainRadioButtonMouseExited
         removeMouseOverRadioButton(noMainRadioButton);
     }//GEN-LAST:event_noMainRadioButtonMouseExited
+
+    private void maxTimeSpinnerStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_maxTimeSpinnerStateChanged
+		Integer cost = (Integer)maxTimeSpinner.getValue();
+		cost += 5;
+		cost = (cost/10)*10;
+		maxTimeSpinner.setValue(cost);
+    }//GEN-LAST:event_maxTimeSpinnerStateChanged
 
     private void removeMouseOverRadioButton(JRadioButton btn) {
         if (btn == lastClickedRadioButton)
