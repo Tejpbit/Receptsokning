@@ -13,7 +13,7 @@ import se.chalmers.ait.dat215.lab2.Recipe;
  * and open the template in the editor.
  */
 
-public class RecipeSearchView extends javax.swing.JFrame {
+public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView{
 
     /**
      * Creates new form ExampleApplicationView
@@ -529,7 +529,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
 		
 		for (Recipe r : recipeList) {
 			
-			recipeListPane.add(new DishPanel(r));
+			recipeListPane.add(new DishPanel(r, this));
 			
 		}
 		this.revalidate();
@@ -538,23 +538,23 @@ public class RecipeSearchView extends javax.swing.JFrame {
 		recipeScrollPane.getVerticalScrollBar().setValue(0);
 	}
 	
-	/*
 	@Override
-	public void setDishPanelAsMainView(DishPanel dp, boolean focusDishPanel) {
-
-		if (focusDishPanel) {
-			recipeScrollPane.remove(recipeListPane); // TODO detta funkar dass
-			recipeScrollPane.revalidate();
-			recipeScrollPane.add(new DishPanel(dp.getre));
-			System.out.println("Focus on Recipe");
+	public void replaceListWithRecipe(DishPanel dp, boolean setRecipe) {
+		
+		if (setRecipe) {
+			recipeListPane.removeAll();
+			recipeListPane.revalidate();
+			
+			recipeListPane.add(dp);
+			recipeListPane.revalidate();
+			System.out.println(dp.getParent());
 		} else {
-			//recipeScrollPane.remove(dp);
-			recipeScrollPane.add(recipeListPane);
+			reportSearch();
 			System.out.println("Focus on List");
 		}
-
+		
 	}
-	*/
+		
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenuItem aboutMenuItem;

@@ -5,7 +5,6 @@
  */
 
 package recipesearch;
-import java.awt.Graphics;
 import java.util.List;
 import javax.swing.*;
 import se.chalmers.ait.dat215.lab2.*;
@@ -21,11 +20,12 @@ public class DishPanel extends javax.swing.JPanel{
 	 * @param recipe
 	 * Displays the recipe in this DishPanel
 	 */
-    public DishPanel(Recipe recipe) {
-		this();
+    public DishPanel(Recipe recipe, ISetMainView mainView) {
+		this(mainView);
 		setRecipe(recipe);
 	}
-	public DishPanel(){
+	public DishPanel(ISetMainView mainView){
+		this.mainView = mainView;
 		initComponents();
 	}
 
@@ -367,6 +367,8 @@ public class DishPanel extends javax.swing.JPanel{
 			dishScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 			descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 			ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+			
+			mainView.replaceListWithRecipe(this, true);
 		} else {
 		//Else if minimized
 			btn.setText("Utöka recept");
@@ -391,6 +393,8 @@ public class DishPanel extends javax.swing.JPanel{
 			dishScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+			
+			mainView.replaceListWithRecipe(this, false);
 		}
     }//GEN-LAST:event_ExpandButtonActionPerformed
 
@@ -423,4 +427,5 @@ public class DishPanel extends javax.swing.JPanel{
     private javax.swing.JLabel timeDataLabel;
     private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
+	private final ISetMainView mainView;
 }
