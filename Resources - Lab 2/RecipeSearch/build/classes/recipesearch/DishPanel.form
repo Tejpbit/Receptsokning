@@ -112,6 +112,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="ingredientsTextArea">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Calibri" size="13" style="0"/>
@@ -119,6 +120,9 @@
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="text" type="java.lang.String" value="3st Majs&#xa;5st Lingon&#xa;8st gr&#xf6;n&#xa;En juice"/>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="null"/>
+                        </Property>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[4, 300]"/>
                         </Property>
@@ -151,7 +155,7 @@
                         </Property>
                         <Property name="lineWrap" type="boolean" value="true"/>
                         <Property name="rows" type="int" value="5"/>
-                        <Property name="text" type="java.lang.String" value="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales orci sit amet lacus convallis tincidunt. Suspendisse lacinia ultrices urna eget euismod. Suspendisse ut lacu quis massa facilisis viverra et id urna. Aliquam non mattis justo. Suspendisse varius, dolor vel pharetra semper, odio quam egestas leo, eget dictum arcu odio sed felis. Nunc tincidunt nulla eu orci sollicitudin, sed vestibulum metus suscipit. Nam at dui iaculis, gravida nunc eu, fermentum elit. In ultrices tortor et risus sodales dapibus. Nulla facilisi. Integer laoreet, mi in ornare sollicitudin, odio est laoreet turpis, et vehicula sapien nulla in arcu. Vivamus vitae est elementum, condimentum nisl a, aliquet purus. Etiam at elit orci. Morbi eu adipiscing elit, at accumsan arcu.&#xa;&#xa;Pellentesque sodales ipsum in sapien volutpat scelerisque. Sed dignissim lacinia magna, eget dignissim felis. Duis fermentum porttitor tempus. Mauris consectetur vestibulum elit sit amet facilisis. Vestibulum tempus blandit ornare. Nam id mattis dolor. Donec semper, nisi id viverra scelerisque, tortor diam interdum purus, in tempor erat leo et mi. Etiam vehicula nisi metus, a convallis ipsum elementum eget. Vestibulum blandit diam arcu, non vehicula turpis fermentum vitae.&#xa;&#xa;Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sed feugiat massa. Morbi condimentum ante in enim congue semper. Maecenas dictum dolor nec dui dignissim, quis tincidunt leo laoreet. Nunc venenatis arcu ac enim elementum congue. Pellentesque fermentum magna arcu, nec dapibus lacus mollis quis. Nullam aliquam laoreet justo, at ullamcorper mi dignissim nec. Sed sit amet mollis erat, vitae pretium neque. Donec at velit in sem laoreet tristique sit amet vel sem. Vestibulum mauris leo, molestie non nunc id, bibendum feugiat arcu. Duis lobortis risus diam, id vulputate neque dignissim blandit. Curabitur bibendum tellus ut elit tincidunt, a blandit odio blandit. Morbi eu neque in diam placerat pulvinar. Vestibulum aliquet vitae libero non egestas.&#xa;&#xa;Ut eleifend id nibh nec egestas. Sed sit amet tincidunt felis. Praesent dolor nunc, venenatis id fringilla sed, feugiat ut nisi. Vestibulum rhoncus, ante non venenatis feugiat, elit urna dictum turpis, vel rutrum nulla diam non massa. Nullam eget ipsum nec urna aliquam pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac lectus vestibulum, bibendum turpis vitae, euismod arcu. Sed in nibh et arcu rutrum facilisis vel et lorem. Nullam quis dolor ultrices, pretium sapien luctus, tristique nulla. Fusce vehicula nisi orci, sed aliquet enim lobortis ac. Ut ac nibh vitae mi lobortis pellentesque. Nam eu tincidunt sem, eget hendrerit est. Quisque ac auctor ante. Sed et scelerisque sapien.&#xa;&#xa;Aliquam volutpat, mauris non rhoncus convallis, mauris felis fringilla justo, vel iaculis arcu odio vitae dolor. Donec a auctor lacus, non imperdiet risus. Ut cursus fringilla eros, vitae dignissim lectus faucibus eget. Cras id arcu diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultricies risus in ante pellentesque lobortis. Aenean dignissim risus id arcu tincidunt ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus urna diam, euismod in massa vel, tincidunt suscipit nisl. In luctus commodo arcu, in bibendum sapien consequat at. Fusce dapibus, sapien ac laoreet molestie, justo tellus consectetur risus, sed varius turpis diam et nibh."/>
+                        <Property name="text" type="java.lang.String" value="Beskrivning ej till&#xe4;nglig"/>
                         <Property name="toolTipText" type="java.lang.String" value="Recipe description"/>
                         <Property name="autoscrolls" type="boolean" value="false"/>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -174,8 +178,8 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="dishTypeIcon" min="-2" pref="36" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="dishTypeIcon" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="dishtypeLabel" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="dishImage" min="-2" pref="105" max="-2" attributes="0"/>
@@ -190,10 +194,10 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="dishImage" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="dishImage" min="-2" pref="105" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="dishtypeLabel" pref="35" max="32767" attributes="0"/>
+                              <Component id="dishtypeLabel" max="32767" attributes="0"/>
                               <Component id="dishTypeIcon" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -241,7 +245,7 @@
                                   <Component id="priceDataLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="timeDataLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -352,6 +356,15 @@
                 <Component class="javax.swing.JLabel" name="dishTypeIcon">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="DISH ICON MISSING"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[48, 48]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[48, 48]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[48, 48]"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>

@@ -22,9 +22,36 @@ public class DishPanel extends javax.swing.JPanel{
 	 * Displays the recipe in this DishPanel
 	 */
     public DishPanel(Recipe recipe) {
-		this();		
-        setImage(recipe.getImage());
-		//setTypeIcon(null); //TODO FIXME
+		this();
+		setRecipe(recipe);
+	}
+	public DishPanel(){
+		initComponents();
+	}
+	
+	public void setRecipe(Recipe recipe){
+		setImage(recipe.getImage(105, 105));
+		
+		ImageIcon icon = null;
+		switch(recipe.getMainIngredient()){
+			case "Kött":
+				icon = new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/meat_icon.png"));
+				break;
+			case "Vegetarisk":
+				icon = new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/tree_icon.png"));
+				break;
+			case "Kyckling":
+				icon = new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/Chicken_icon.png"));
+				break;
+			case "Fisk":
+				icon = new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/fish_icon.png"));
+				break;
+				
+			default:
+				new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/no_choice.png"));
+		}
+		
+		setTypeIcon(icon);
 		setType(recipe.getMainIngredient());
 		setServings(recipe.getServings());
 		setCuisine(recipe.getCuisine());
@@ -35,17 +62,10 @@ public class DishPanel extends javax.swing.JPanel{
 		setName(recipe.getName());
 		setIngredients(recipe.getIngredients());
 		setDescription(recipe.getDescription());
-    }
-	public DishPanel(){
-		initComponents();
 	}
-
 	/** Setters used to change different components in view **/
 	public void setImage(ImageIcon image){
-		dishImage.setText("penis");
 		dishImage.setIcon(image);
-		dishImage.repaint();
-		validate();
 	}
 	public void setTypeIcon(ImageIcon image){
 		dishTypeIcon.setIcon(image);
@@ -212,7 +232,7 @@ public class DishPanel extends javax.swing.JPanel{
                     .addComponent(matchDataLabel)
                     .addComponent(priceDataLabel)
                     .addComponent(timeDataLabel))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         dishInfoPanelLayout.setVerticalGroup(
             dishInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,6 +265,9 @@ public class DishPanel extends javax.swing.JPanel{
         dishImage.setText("DISH IMAGE MISSING");
 
         dishTypeIcon.setText("DISH ICON MISSING");
+        dishTypeIcon.setMaximumSize(new java.awt.Dimension(48, 48));
+        dishTypeIcon.setMinimumSize(new java.awt.Dimension(48, 48));
+        dishTypeIcon.setPreferredSize(new java.awt.Dimension(48, 48));
 
         javax.swing.GroupLayout MiscInfoPanelLayout = new javax.swing.GroupLayout(MiscInfoPanel);
         MiscInfoPanel.setLayout(MiscInfoPanelLayout);
@@ -256,8 +279,8 @@ public class DishPanel extends javax.swing.JPanel{
                     .addGroup(MiscInfoPanelLayout.createSequentialGroup()
                         .addGroup(MiscInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MiscInfoPanelLayout.createSequentialGroup()
-                                .addComponent(dishTypeIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(dishTypeIcon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(dishtypeLabel))
                             .addComponent(dishImage, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -266,10 +289,10 @@ public class DishPanel extends javax.swing.JPanel{
         MiscInfoPanelLayout.setVerticalGroup(
             MiscInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MiscInfoPanelLayout.createSequentialGroup()
-                .addComponent(dishImage, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dishImage, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(MiscInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(dishtypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(dishtypeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(dishTypeIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(dishInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

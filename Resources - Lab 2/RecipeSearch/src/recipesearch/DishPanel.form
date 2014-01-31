@@ -178,8 +178,8 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="dishTypeIcon" min="-2" pref="36" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="dishTypeIcon" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
                                           <Component id="dishtypeLabel" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Component id="dishImage" min="-2" pref="105" max="-2" attributes="0"/>
@@ -194,10 +194,10 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="dishImage" min="-2" pref="104" max="-2" attributes="0"/>
+                          <Component id="dishImage" min="-2" pref="105" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="dishtypeLabel" pref="35" max="32767" attributes="0"/>
+                              <Component id="dishtypeLabel" max="32767" attributes="0"/>
                               <Component id="dishTypeIcon" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -245,7 +245,7 @@
                                   <Component id="priceDataLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="timeDataLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="14" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -356,6 +356,15 @@
                 <Component class="javax.swing.JLabel" name="dishTypeIcon">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="DISH ICON MISSING"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[48, 48]"/>
+                    </Property>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[48, 48]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[48, 48]"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>
