@@ -5,6 +5,7 @@
  */
 
 package recipesearch;
+import java.awt.Graphics;
 import java.util.List;
 import javax.swing.*;
 import se.chalmers.ait.dat215.lab2.*;
@@ -34,15 +35,17 @@ public class DishPanel extends javax.swing.JPanel{
 		setName(recipe.getName());
 		setIngredients(recipe.getIngredients());
 		setDescription(recipe.getDescription());
-		//revalidate();
     }
 	public DishPanel(){
 		initComponents();
 	}
 
-	/** Setters used by controller to update view **/
+	/** Setters used to change different components in view **/
 	public void setImage(ImageIcon image){
+		dishImage.setText("penis");
 		dishImage.setIcon(image);
+		dishImage.repaint();
+		validate();
 	}
 	public void setTypeIcon(ImageIcon image){
 		dishTypeIcon.setIcon(image);
@@ -77,7 +80,6 @@ public class DishPanel extends javax.swing.JPanel{
 			ingredientsText += ingredient.getName() + ": " + ingredient.getAmount()
 					+ ingredient.getUnit() + "\n";
 		}
-		System.out.println(ingredientsText);
 		ingredientsTextArea.setText(ingredientsText);
 	}
 	public void setDescription(String string){
