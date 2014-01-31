@@ -14,12 +14,31 @@ import se.chalmers.ait.dat215.lab2.*;
  * @author Kuxe
  */
 public class DishPanel extends javax.swing.JPanel{
-    /**
-     * Creates new form DishPanel
-     */
-    public DishPanel() {
-        initComponents();
+    
+	/**
+	 * Creates new form DishPanel
+	 * @param recipe
+	 * Displays the recipe in this DishPanel
+	 */
+    public DishPanel(Recipe recipe) {
+		
+        setImage(recipe.getImage());
+		setTypeIcon(null); //TODO FIXME
+		setServings(recipe.getServings());
+		setCuisine(recipe.getCuisine());
+		setDifficulty(recipe.getDifficulty());
+		setMatch(recipe.getMatch());
+		setPrice(recipe.getPrice());
+		setTime(recipe.getTime());
+		setName(recipe.getName());
+		setIngredients(recipe.getIngredients());
+		setDescription(recipe.getDescription());
+		
+		initComponents();
     }
+	public DishPanel(){
+		this(null);
+	}
 
 	/** Setters used by controller to update view **/
 	public void setImage(ImageIcon image){
