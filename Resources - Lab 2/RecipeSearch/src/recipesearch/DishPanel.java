@@ -21,10 +21,10 @@ public class DishPanel extends javax.swing.JPanel{
 	 * Displays the recipe in this DishPanel
 	 */
     public DishPanel(Recipe recipe) {
-		this();
-		
+		this();		
         setImage(recipe.getImage());
-		setTypeIcon(null); //TODO FIXME
+		//setTypeIcon(null); //TODO FIXME
+		setType(recipe.getMainIngredient());
 		setServings(recipe.getServings());
 		setCuisine(recipe.getCuisine());
 		setDifficulty(recipe.getDifficulty());
@@ -34,6 +34,7 @@ public class DishPanel extends javax.swing.JPanel{
 		setName(recipe.getName());
 		setIngredients(recipe.getIngredients());
 		setDescription(recipe.getDescription());
+		//revalidate();
     }
 	public DishPanel(){
 		initComponents();
@@ -41,10 +42,10 @@ public class DishPanel extends javax.swing.JPanel{
 
 	/** Setters used by controller to update view **/
 	public void setImage(ImageIcon image){
-		dishImage = new JLabel(image);
+		dishImage.setIcon(image);
 	}
 	public void setTypeIcon(ImageIcon image){
-		dishTypeIcon = new JLabel(image);
+		dishTypeIcon.setIcon(image);
 	}
 	public void setType(String string){
 		dishtypeLabel.setText(string);
@@ -73,10 +74,10 @@ public class DishPanel extends javax.swing.JPanel{
 	public void setIngredients(List<Ingredient> ingredients){
 		String ingredientsText = "";
 		for(Ingredient ingredient : ingredients){
-			ingredientsText.concat("\n" + ingredient.getName() + ": "+
-					ingredient.getUnit());
-			
+			ingredientsText += ingredient.getName() + ": " + ingredient.getAmount()
+					+ ingredient.getUnit() + "\n";
 		}
+		System.out.println(ingredientsText);
 		ingredientsTextArea.setText(ingredientsText);
 	}
 	public void setDescription(String string){
@@ -94,7 +95,7 @@ public class DishPanel extends javax.swing.JPanel{
     private void initComponents() {
 
         dishScrollPane = new javax.swing.JScrollPane();
-        ScrollablePanel = new javax.swing.JPanel();
+        scrollablePanel = new javax.swing.JPanel();
         dishNameLabel = new javax.swing.JLabel();
         ingredientsDescriptionSplitPanel = new javax.swing.JSplitPane();
         ingredientsScrollPanelSplit = new javax.swing.JScrollPane();
@@ -131,10 +132,13 @@ public class DishPanel extends javax.swing.JPanel{
         ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         ingredientsScrollPanelSplit.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
+        ingredientsTextArea.setEditable(false);
         ingredientsTextArea.setColumns(20);
+        ingredientsTextArea.setFont(new java.awt.Font("Calibri", 0, 13)); // NOI18N
         ingredientsTextArea.setLineWrap(true);
         ingredientsTextArea.setRows(5);
         ingredientsTextArea.setText("3st Majs\n5st Lingon\n8st grön\nEn juice");
+        ingredientsTextArea.setBorder(null);
         ingredientsTextArea.setMaximumSize(new java.awt.Dimension(4, 300));
         ingredientsTextArea.setMinimumSize(new java.awt.Dimension(4, 200));
         ingredientsScrollPanelSplit.setViewportView(ingredientsTextArea);
@@ -149,7 +153,7 @@ public class DishPanel extends javax.swing.JPanel{
         descriptionTextArea.setFont(new java.awt.Font("Calibri", 0, 13)); // NOI18N
         descriptionTextArea.setLineWrap(true);
         descriptionTextArea.setRows(5);
-        descriptionTextArea.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales orci sit amet lacus convallis tincidunt. Suspendisse lacinia ultrices urna eget euismod. Suspendisse ut lacu quis massa facilisis viverra et id urna. Aliquam non mattis justo. Suspendisse varius, dolor vel pharetra semper, odio quam egestas leo, eget dictum arcu odio sed felis. Nunc tincidunt nulla eu orci sollicitudin, sed vestibulum metus suscipit. Nam at dui iaculis, gravida nunc eu, fermentum elit. In ultrices tortor et risus sodales dapibus. Nulla facilisi. Integer laoreet, mi in ornare sollicitudin, odio est laoreet turpis, et vehicula sapien nulla in arcu. Vivamus vitae est elementum, condimentum nisl a, aliquet purus. Etiam at elit orci. Morbi eu adipiscing elit, at accumsan arcu.\n\nPellentesque sodales ipsum in sapien volutpat scelerisque. Sed dignissim lacinia magna, eget dignissim felis. Duis fermentum porttitor tempus. Mauris consectetur vestibulum elit sit amet facilisis. Vestibulum tempus blandit ornare. Nam id mattis dolor. Donec semper, nisi id viverra scelerisque, tortor diam interdum purus, in tempor erat leo et mi. Etiam vehicula nisi metus, a convallis ipsum elementum eget. Vestibulum blandit diam arcu, non vehicula turpis fermentum vitae.\n\nVestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In sed feugiat massa. Morbi condimentum ante in enim congue semper. Maecenas dictum dolor nec dui dignissim, quis tincidunt leo laoreet. Nunc venenatis arcu ac enim elementum congue. Pellentesque fermentum magna arcu, nec dapibus lacus mollis quis. Nullam aliquam laoreet justo, at ullamcorper mi dignissim nec. Sed sit amet mollis erat, vitae pretium neque. Donec at velit in sem laoreet tristique sit amet vel sem. Vestibulum mauris leo, molestie non nunc id, bibendum feugiat arcu. Duis lobortis risus diam, id vulputate neque dignissim blandit. Curabitur bibendum tellus ut elit tincidunt, a blandit odio blandit. Morbi eu neque in diam placerat pulvinar. Vestibulum aliquet vitae libero non egestas.\n\nUt eleifend id nibh nec egestas. Sed sit amet tincidunt felis. Praesent dolor nunc, venenatis id fringilla sed, feugiat ut nisi. Vestibulum rhoncus, ante non venenatis feugiat, elit urna dictum turpis, vel rutrum nulla diam non massa. Nullam eget ipsum nec urna aliquam pulvinar. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac lectus vestibulum, bibendum turpis vitae, euismod arcu. Sed in nibh et arcu rutrum facilisis vel et lorem. Nullam quis dolor ultrices, pretium sapien luctus, tristique nulla. Fusce vehicula nisi orci, sed aliquet enim lobortis ac. Ut ac nibh vitae mi lobortis pellentesque. Nam eu tincidunt sem, eget hendrerit est. Quisque ac auctor ante. Sed et scelerisque sapien.\n\nAliquam volutpat, mauris non rhoncus convallis, mauris felis fringilla justo, vel iaculis arcu odio vitae dolor. Donec a auctor lacus, non imperdiet risus. Ut cursus fringilla eros, vitae dignissim lectus faucibus eget. Cras id arcu diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque ultricies risus in ante pellentesque lobortis. Aenean dignissim risus id arcu tincidunt ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus urna diam, euismod in massa vel, tincidunt suscipit nisl. In luctus commodo arcu, in bibendum sapien consequat at. Fusce dapibus, sapien ac laoreet molestie, justo tellus consectetur risus, sed varius turpis diam et nibh.");
+        descriptionTextArea.setText("Beskrivning ej tillänglig");
         descriptionTextArea.setToolTipText("Recipe description");
         descriptionTextArea.setAutoscrolls(false);
         descriptionTextArea.setBorder(null);
@@ -270,33 +274,33 @@ public class DishPanel extends javax.swing.JPanel{
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout ScrollablePanelLayout = new javax.swing.GroupLayout(ScrollablePanel);
-        ScrollablePanel.setLayout(ScrollablePanelLayout);
-        ScrollablePanelLayout.setHorizontalGroup(
-            ScrollablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ScrollablePanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout scrollablePanelLayout = new javax.swing.GroupLayout(scrollablePanel);
+        scrollablePanel.setLayout(scrollablePanelLayout);
+        scrollablePanelLayout.setHorizontalGroup(
+            scrollablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scrollablePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(MiscInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ScrollablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ScrollablePanelLayout.createSequentialGroup()
+                .addGroup(scrollablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(scrollablePanelLayout.createSequentialGroup()
                         .addComponent(dishNameLabel)
                         .addContainerGap(231, Short.MAX_VALUE))
                     .addComponent(ingredientsDescriptionSplitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
         );
-        ScrollablePanelLayout.setVerticalGroup(
-            ScrollablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ScrollablePanelLayout.createSequentialGroup()
+        scrollablePanelLayout.setVerticalGroup(
+            scrollablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(scrollablePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ScrollablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ScrollablePanelLayout.createSequentialGroup()
+                .addGroup(scrollablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(scrollablePanelLayout.createSequentialGroup()
                         .addComponent(dishNameLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ingredientsDescriptionSplitPanel))
                     .addComponent(MiscInfoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        dishScrollPane.setViewportView(ScrollablePanel);
+        dishScrollPane.setViewportView(scrollablePanel);
 
         ExpandButton.setText("Utöka recept");
         ExpandButton.addActionListener(new java.awt.event.ActionListener() {
@@ -369,7 +373,6 @@ public class DishPanel extends javax.swing.JPanel{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton ExpandButton;
     private javax.swing.JPanel MiscInfoPanel;
-    private javax.swing.JPanel ScrollablePanel;
     private javax.swing.JLabel cuisineDataLabel;
     private javax.swing.JLabel cuisineLabel;
     private javax.swing.JScrollPane descriptionScrollPanelSplit;
@@ -389,6 +392,7 @@ public class DishPanel extends javax.swing.JPanel{
     private javax.swing.JLabel matchLabel;
     private javax.swing.JLabel priceDataLabel;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JPanel scrollablePanel;
     private javax.swing.JLabel servingsDataLabel;
     private javax.swing.JLabel servingsLabel;
     private javax.swing.JLabel timeDataLabel;
