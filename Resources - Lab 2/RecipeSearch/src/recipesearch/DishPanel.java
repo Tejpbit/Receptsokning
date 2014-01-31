@@ -79,9 +79,9 @@ public class DishPanel extends javax.swing.JPanel{
         ScrollablePanel = new javax.swing.JPanel();
         dishNameLabel = new javax.swing.JLabel();
         ingredientsDescriptionSplitPanel = new javax.swing.JSplitPane();
-        ingredientsSplit = new javax.swing.JScrollPane();
+        ingredientsScrollPanelSplit = new javax.swing.JScrollPane();
         ingredientsTextArea = new javax.swing.JTextArea();
-        descriptionSplit = new javax.swing.JScrollPane();
+        descriptionScrollPanelSplit = new javax.swing.JScrollPane();
         descriptionTextArea = new javax.swing.JTextArea();
         MiscInfoPanel = new javax.swing.JPanel();
         dishtypeLabel = new javax.swing.JLabel();
@@ -110,15 +110,21 @@ public class DishPanel extends javax.swing.JPanel{
 
         ingredientsDescriptionSplitPanel.setBorder(null);
 
+        ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        ingredientsScrollPanelSplit.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+
         ingredientsTextArea.setColumns(20);
         ingredientsTextArea.setLineWrap(true);
         ingredientsTextArea.setRows(5);
         ingredientsTextArea.setText("3st Majs\n5st Lingon\n8st grön\nEn juice");
         ingredientsTextArea.setMaximumSize(new java.awt.Dimension(4, 300));
         ingredientsTextArea.setMinimumSize(new java.awt.Dimension(4, 200));
-        ingredientsSplit.setViewportView(ingredientsTextArea);
+        ingredientsScrollPanelSplit.setViewportView(ingredientsTextArea);
 
-        ingredientsDescriptionSplitPanel.setLeftComponent(ingredientsSplit);
+        ingredientsDescriptionSplitPanel.setLeftComponent(ingredientsScrollPanelSplit);
+
+        descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        descriptionScrollPanelSplit.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
         descriptionTextArea.setEditable(false);
         descriptionTextArea.setColumns(20);
@@ -129,9 +135,9 @@ public class DishPanel extends javax.swing.JPanel{
         descriptionTextArea.setToolTipText("Recipe description");
         descriptionTextArea.setAutoscrolls(false);
         descriptionTextArea.setBorder(null);
-        descriptionSplit.setViewportView(descriptionTextArea);
+        descriptionScrollPanelSplit.setViewportView(descriptionTextArea);
 
-        ingredientsDescriptionSplitPanel.setRightComponent(descriptionSplit);
+        ingredientsDescriptionSplitPanel.setRightComponent(descriptionScrollPanelSplit);
 
         dishtypeLabel.setText("<dishtype>");
 
@@ -305,11 +311,27 @@ public class DishPanel extends javax.swing.JPanel{
 		//If maximized
 		if(btn.isSelected()){
 			btn.setText("Minimera recept");
+			
+			//Enable scrolling in horizontal and vertical direction when maximized 
 			dishScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+			descriptionScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+			ingredientsScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+			
+			dishScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+			descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+			ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		} else {
 		//Else if minimized
 			btn.setText("Utöka recept");
+			
+			//Disable scrolling in horizontal and vertical direction when minimized
 			dishScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+			descriptionScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+			ingredientsScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+			
+			dishScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+			descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+			ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		}
     }//GEN-LAST:event_ExpandButtonActionPerformed
 
@@ -320,7 +342,7 @@ public class DishPanel extends javax.swing.JPanel{
     private javax.swing.JPanel ScrollablePanel;
     private javax.swing.JLabel cuisineDataLabel;
     private javax.swing.JLabel cuisineLabel;
-    private javax.swing.JScrollPane descriptionSplit;
+    private javax.swing.JScrollPane descriptionScrollPanelSplit;
     private javax.swing.JTextArea descriptionTextArea;
     private javax.swing.JLabel difficultyDataLabel;
     private javax.swing.JLabel difficultyLabel;
@@ -331,7 +353,7 @@ public class DishPanel extends javax.swing.JPanel{
     private javax.swing.JLabel dishTypeIcon;
     private javax.swing.JLabel dishtypeLabel;
     private javax.swing.JSplitPane ingredientsDescriptionSplitPanel;
-    private javax.swing.JScrollPane ingredientsSplit;
+    private javax.swing.JScrollPane ingredientsScrollPanelSplit;
     private javax.swing.JTextArea ingredientsTextArea;
     private javax.swing.JLabel matchDataLabel;
     private javax.swing.JLabel matchLabel;
