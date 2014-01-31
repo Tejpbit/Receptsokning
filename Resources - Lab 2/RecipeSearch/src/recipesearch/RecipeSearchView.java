@@ -18,6 +18,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
      */
     public RecipeSearchView() {
         initComponents();
+		
         lastClickedRadioButton = noMainRadioButton;
         meatRadioButton.setBorder(standardBorder);
         vegetarianRadioButton.setBorder(standardBorder);
@@ -79,7 +80,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sök");
 
-        cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Svergie", "Grekland", "Indien", "Asien", "Afrika", "Frankrike" }));
         cuisineComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cuisineComboBoxActionPerformed(evt);
@@ -92,14 +93,14 @@ public class RecipeSearchView extends javax.swing.JFrame {
         meatRadioButton.setBorderPainted(true);
         meatRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/meat_icon.png"))); // NOI18N
         meatRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                meatRadioButtonMouseExited(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 meatRadioButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 meatRadioButtonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                meatRadioButtonMouseExited(evt);
             }
         });
 
@@ -463,7 +464,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
     private javax.swing.JRadioButton vegetarianRadioButton;
     // End of variables declaration//GEN-END:variables
     private JRadioButton lastClickedRadioButton;
-    private Border standardBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray);
-    private Border mouseOverBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.GRAY, new java.awt.Color(250, 250, 250), java.awt.Color.lightGray, java.awt.Color.darkGray);
-    private Border clickedBorder = BorderFactory.createBevelBorder(BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray);
+    private final Border standardBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray);
+    private final Border mouseOverBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.GRAY, new java.awt.Color(250, 250, 250), java.awt.Color.lightGray, java.awt.Color.darkGray);
+    private final Border clickedBorder = BorderFactory.createBevelBorder(BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray);
 }
