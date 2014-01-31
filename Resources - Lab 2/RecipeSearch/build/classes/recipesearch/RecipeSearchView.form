@@ -222,7 +222,7 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="7">
                     <StringItem index="0" value="&lt;ej valt&gt;"/>
-                    <StringItem index="1" value="Svergie"/>
+                    <StringItem index="1" value="Sverige"/>
                     <StringItem index="2" value="Grekland"/>
                     <StringItem index="3" value="Indien"/>
                     <StringItem index="4" value="Asien"/>
@@ -280,7 +280,8 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mainIngredientButtonGroup"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Vegteriskt"/>
+                <Property name="text" type="java.lang.String" value="Vegetarisk"/>
+                <Property name="actionCommand" type="java.lang.String" value="Vegetarisk"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -340,7 +341,8 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="difficulityButtonGroup"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Medel"/>
+                <Property name="text" type="java.lang.String" value="Mellan"/>
+                <Property name="actionCommand" type="java.lang.String" value="Mellan"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mediumRadioButtonMouseClicked"/>
@@ -351,7 +353,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="difficulityButtonGroup"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Sv&#xe5;rt"/>
+                <Property name="text" type="java.lang.String" value="Sv&#xe5;r"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hardRadioButtonMouseClicked"/>

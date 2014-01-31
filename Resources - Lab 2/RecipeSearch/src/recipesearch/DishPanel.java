@@ -5,7 +5,6 @@
  */
 
 package recipesearch;
-import java.awt.Graphics;
 import java.util.List;
 import javax.swing.*;
 import se.chalmers.ait.dat215.lab2.*;
@@ -21,8 +20,9 @@ public class DishPanel extends javax.swing.JPanel{
 	 * @param recipe
 	 * Displays the recipe in this DishPanel
 	 */
-    public DishPanel(Recipe recipe) {
-		this();		
+    public DishPanel(Recipe recipe, IToggleRecipe toggleRecipe) {
+		this(toggleRecipe);
+		
         setImage(recipe.getImage());
 		//setTypeIcon(null); //TODO FIXME
 		setType(recipe.getMainIngredient());
@@ -36,7 +36,8 @@ public class DishPanel extends javax.swing.JPanel{
 		setIngredients(recipe.getIngredients());
 		setDescription(recipe.getDescription());
     }
-	public DishPanel(){
+	public DishPanel(IToggleRecipe toggleRecipe){
+		this.toggleRecipe = toggleRecipe;
 		initComponents();
 	}
 
@@ -85,7 +86,6 @@ public class DishPanel extends javax.swing.JPanel{
 	public void setDescription(String string){
 		descriptionTextArea.setText(string);
 	}
-	
 	
     /**
      * This method is called from within the constructor to initialize the form.
@@ -344,6 +344,8 @@ public class DishPanel extends javax.swing.JPanel{
 			dishScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 			descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 			ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+			
+			toggleRecipe.setDishPanelAsMainView(this, true);
 		} else {
 		//Else if minimized
 			btn.setText("Utöka recept");
@@ -368,6 +370,8 @@ public class DishPanel extends javax.swing.JPanel{
 			dishScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+			
+			toggleRecipe.setDishPanelAsMainView(this, false);
 		}
     }//GEN-LAST:event_ExpandButtonActionPerformed
 
@@ -400,4 +404,5 @@ public class DishPanel extends javax.swing.JPanel{
     private javax.swing.JLabel timeDataLabel;
     private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
+	private final IToggleRecipe toggleRecipe;
 }
