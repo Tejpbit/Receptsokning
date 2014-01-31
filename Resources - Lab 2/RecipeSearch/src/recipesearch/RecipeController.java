@@ -6,14 +6,8 @@
 
 package recipesearch;
 
+import java.util.List;
 import se.chalmers.ait.dat215.lab2.*;
-/**
- * Ingredient		//kommer
- * Recipe			//jag
- * RecipeComparator // nog inte använda
- * RecipeDatabase
- * SearchFilter
-*/
 
 /**
  *
@@ -21,25 +15,20 @@ import se.chalmers.ait.dat215.lab2.*;
  */
 public class RecipeController implements IRecipeSearchInputs{
 	
-	private final RecipeDatabase recipeDatabase = RecipeDatabase.getSharedInstance();
-	
+	private RecipeDatabase db = RecipeDatabase.getSharedInstance();
+	private RecipeSearchView recipeSV;
 	
 	public RecipeController() {
-		new RecipeSearchView(this).setVisible(true);
+		recipeSV = new RecipeSearchView(this);
+		recipeSV.setVisible(true);
 		
 		
 	}
 
 	@Override
 	public void reportSearchCriteria(String cuisine, String mainIngredient, String difficulity, int maxPrice, int maxTime) {
-		System.out.println(String.format(""
-				+ "Cuisine: %s\n"
-				+ "MainIngredient: %s\n"
-				+ "Difficulity: %s\n"
-				+ "MaxPrice: %d\n"
-				+ "MaxTime: %d", cuisine, mainIngredient, difficulity, maxPrice, maxTime));
+		List<Recipe> recipeList = db.search(new SearchFilter("Lätt", 0, "Sverige", 0, "Kött"));
+		System.out.println("nbrOfrecipes " + recipeList.size());
+		recipeSV.setRecipeList(recipeList);
 	}
-	
-	
-	
 }
