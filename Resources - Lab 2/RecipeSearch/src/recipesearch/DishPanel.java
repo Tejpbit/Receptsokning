@@ -21,6 +21,7 @@ public class DishPanel extends javax.swing.JPanel{
 	 * Displays the recipe in this DishPanel
 	 */
     public DishPanel(Recipe recipe) {
+		this();
 		
         setImage(recipe.getImage());
 		setTypeIcon(null); //TODO FIXME
@@ -33,8 +34,6 @@ public class DishPanel extends javax.swing.JPanel{
 		setName(recipe.getName());
 		setIngredients(recipe.getIngredients());
 		setDescription(recipe.getDescription());
-		
-		initComponents();
     }
 	public DishPanel(){
 		initComponents();
