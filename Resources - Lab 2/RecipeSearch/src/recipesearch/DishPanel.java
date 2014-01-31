@@ -342,11 +342,23 @@ public class DishPanel extends javax.swing.JPanel{
 		//Else if minimized
 			btn.setText("Utöka recept");
 			
+			
+			//Scrollback textfields
+			descriptionTextArea.setCaretPosition(0);
+			ingredientsTextArea.setCaretPosition(0);
+			
+			//Reset scrollbars to 0, default location
+			dishScrollPane.getHorizontalScrollBar().setValue(0);
+			dishScrollPane.getVerticalScrollBar().setValue(0);
+			descriptionScrollPanelSplit.getHorizontalScrollBar().setValue(0);
+			descriptionScrollPanelSplit.getVerticalScrollBar().setValue(0);
+			ingredientsScrollPanelSplit.getHorizontalScrollBar().setValue(0);
+			ingredientsScrollPanelSplit.getVerticalScrollBar().setValue(0);
+			
 			//Disable scrolling in horizontal and vertical direction when minimized
 			dishScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 			descriptionScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 			ingredientsScrollPanelSplit.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-			
 			dishScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			descriptionScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			ingredientsScrollPanelSplit.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
