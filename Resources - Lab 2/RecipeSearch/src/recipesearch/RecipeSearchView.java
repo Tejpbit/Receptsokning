@@ -1,8 +1,5 @@
 package recipesearch;
 
-import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JRadioButton;
 import javax.swing.border.BevelBorder;
@@ -14,12 +11,14 @@ import javax.swing.border.Border;
  * and open the template in the editor.
  */
 
-public class RecipeSearchView extends javax.swing.JFrame {
+public class RecipeSearchView extends javax.swing.JFrame{
 
     /**
      * Creates new form ExampleApplicationView
      */
-    public RecipeSearchView() {
+    public RecipeSearchView(IRecipeSearchInputs recipeSearchInputs) {
+		this.recipeSearchInputs = recipeSearchInputs;
+		
         initComponents();
 		
         lastClickedRadioButton = noMainRadioButton;
@@ -65,6 +64,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         noMainRadioButton = new javax.swing.JRadioButton();
+        noDifficulityRadioButton = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -83,7 +83,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Sök");
 
-        cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Svergie", "Grekland", "Indien", "Asien", "Afrika", "Frankrike" }));
+        cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<ej valt>", "Svergie", "Grekland", "Indien", "Asien", "Afrika", "Frankrike" }));
         cuisineComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cuisineComboBoxActionPerformed(evt);
@@ -162,14 +162,29 @@ public class RecipeSearchView extends javax.swing.JFrame {
 
         difficulityButtonGroup.add(easyRadioButton);
         easyRadioButton.setText("Lätt");
+        easyRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                easyRadioButtonMouseClicked(evt);
+            }
+        });
 
         difficulityButtonGroup.add(mediumRadioButton);
         mediumRadioButton.setText("Medel");
+        mediumRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mediumRadioButtonMouseClicked(evt);
+            }
+        });
 
         difficulityButtonGroup.add(hardRadioButton);
         hardRadioButton.setText("Svårt");
+        hardRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                hardRadioButtonMouseClicked(evt);
+            }
+        });
 
-        jLabel3.setText("Max Pris");
+        jLabel3.setText("Max Pris(kr)");
 
         jLabel4.setText("Max Tid(m)");
 
@@ -187,19 +202,29 @@ public class RecipeSearchView extends javax.swing.JFrame {
         jLabel6.setText("Svårighetsgrad");
 
         mainIngredientButtonGroup.add(noMainRadioButton);
+        noMainRadioButton.setSelected(true);
         noMainRadioButton.setText("Ej valt");
         noMainRadioButton.setBorder(null);
         noMainRadioButton.setBorderPainted(true);
         noMainRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/no_choice.png"))); // NOI18N
         noMainRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                noMainRadioButtonMouseExited(evt);
+            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 noMainRadioButtonMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 noMainRadioButtonMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                noMainRadioButtonMouseExited(evt);
+        });
+
+        difficulityButtonGroup.add(noDifficulityRadioButton);
+        noDifficulityRadioButton.setSelected(true);
+        noDifficulityRadioButton.setText("Ej valt");
+        noDifficulityRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                noDifficulityRadioButtonMouseClicked(evt);
             }
         });
 
@@ -238,16 +263,18 @@ public class RecipeSearchView extends javax.swing.JFrame {
                         .addGap(12, 12, 12))
                     .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(hardRadioButton)
-                            .addComponent(mediumRadioButton)
-                            .addComponent(easyRadioButton)
-                            .addComponent(jLabel6)
-                            .addComponent(vegetarianRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                            .addComponent(meatRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chickenRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(fishRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(noMainRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(noDifficulityRadioButton)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(hardRadioButton)
+                                .addComponent(mediumRadioButton)
+                                .addComponent(easyRadioButton)
+                                .addComponent(jLabel6)
+                                .addComponent(vegetarianRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                .addComponent(meatRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(chickenRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(fishRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(noMainRadioButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -272,7 +299,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
                 .addComponent(fishRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(noMainRadioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
@@ -282,9 +309,11 @@ public class RecipeSearchView extends javax.swing.JFrame {
                 .addComponent(mediumRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(hardRadioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(noDifficulityRadioButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(maxPriceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -292,7 +321,7 @@ public class RecipeSearchView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(maxTimeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68))
+                .addGap(49, 49, 49))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -364,23 +393,24 @@ public class RecipeSearchView extends javax.swing.JFrame {
     }//GEN-LAST:event_cuisineComboBoxActionPerformed
 
     private void chickenRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chickenRadioButtonMouseClicked
-        setActiveMainIngredientRadioButton(chickenRadioButton);
+        setActiveMainIngredient(chickenRadioButton);
     }//GEN-LAST:event_chickenRadioButtonMouseClicked
 
     private void vegetarianRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vegetarianRadioButtonMouseClicked
-        setActiveMainIngredientRadioButton(vegetarianRadioButton);
+        setActiveMainIngredient(vegetarianRadioButton);
     }//GEN-LAST:event_vegetarianRadioButtonMouseClicked
 
     private void meatRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatRadioButtonMouseClicked
-        setActiveMainIngredientRadioButton(meatRadioButton);
+        setActiveMainIngredient(meatRadioButton);
     }//GEN-LAST:event_meatRadioButtonMouseClicked
 
     private void fishRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fishRadioButtonMouseClicked
-        setActiveMainIngredientRadioButton(fishRadioButton);
+        setActiveMainIngredient(fishRadioButton);
     }//GEN-LAST:event_fishRadioButtonMouseClicked
 
     private void noMainRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noMainRadioButtonMouseClicked
-        setActiveMainIngredientRadioButton(noMainRadioButton);
+        setActiveMainIngredient(noMainRadioButton);
+		currentMainIngredient = null;
     }//GEN-LAST:event_noMainRadioButtonMouseClicked
 
     private void meatRadioButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_meatRadioButtonMouseEntered
@@ -428,7 +458,25 @@ public class RecipeSearchView extends javax.swing.JFrame {
 		cost += 5;
 		cost = (cost/10)*10;
 		maxTimeSpinner.setValue(cost);
+		
+		reportSearch();
     }//GEN-LAST:event_maxTimeSpinnerStateChanged
+
+    private void easyRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_easyRadioButtonMouseClicked
+        setActiveDifficulity(easyRadioButton);
+    }//GEN-LAST:event_easyRadioButtonMouseClicked
+
+    private void mediumRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mediumRadioButtonMouseClicked
+        setActiveDifficulity(mediumRadioButton);
+    }//GEN-LAST:event_mediumRadioButtonMouseClicked
+
+    private void hardRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_hardRadioButtonMouseClicked
+		setActiveDifficulity(hardRadioButton);
+    }//GEN-LAST:event_hardRadioButtonMouseClicked
+
+    private void noDifficulityRadioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_noDifficulityRadioButtonMouseClicked
+        currentDifficulity = null;
+    }//GEN-LAST:event_noDifficulityRadioButtonMouseClicked
 
     private void removeMouseOverRadioButton(JRadioButton btn) {
         if (btn == lastClickedRadioButton)
@@ -442,12 +490,30 @@ public class RecipeSearchView extends javax.swing.JFrame {
         btn.setBorder(mouseOverBorder);
     }
     
-    private void setActiveMainIngredientRadioButton(JRadioButton btn) {
+	
+	private void setActiveDifficulity(JRadioButton btn) {
+		currentDifficulity = btn.getText();
+	}
+	
+    private void setActiveMainIngredient(JRadioButton btn) {
         lastClickedRadioButton.setBorder(standardBorder);
         lastClickedRadioButton = btn;
         btn.setBorder(clickedBorder);
+		currentMainIngredient = btn.getText();
     }
-    
+	
+	private void reportSearch() {
+		
+		recipeSearchInputs.reportSearchCriteria(
+				cuisineComboBox.getSelectedItem().equals("<ej valt>") ? null : (String)cuisineComboBox.getSelectedItem(),
+				currentMainIngredient,
+				currentDifficulity,
+				(int)maxPriceSpinner.getValue(),
+				(int)maxTimeSpinner.getValue()
+				);
+		
+	}
+	
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutMenuItem;
     private javax.swing.JRadioButton chickenRadioButton;
@@ -479,11 +545,16 @@ public class RecipeSearchView extends javax.swing.JFrame {
     private javax.swing.JSpinner maxTimeSpinner;
     private javax.swing.JRadioButton meatRadioButton;
     private javax.swing.JRadioButton mediumRadioButton;
+    private javax.swing.JRadioButton noDifficulityRadioButton;
     private javax.swing.JRadioButton noMainRadioButton;
     private javax.swing.JRadioButton vegetarianRadioButton;
     // End of variables declaration//GEN-END:variables
-    private JRadioButton lastClickedRadioButton;
     private final Border standardBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray);
     private final Border mouseOverBorder = BorderFactory.createBevelBorder(BevelBorder.RAISED, java.awt.Color.GRAY, new java.awt.Color(250, 250, 250), java.awt.Color.lightGray, java.awt.Color.darkGray);
     private final Border clickedBorder = BorderFactory.createBevelBorder(BevelBorder.LOWERED, java.awt.Color.white, new java.awt.Color(204, 204, 204), java.awt.Color.lightGray, java.awt.Color.darkGray);
+	private final IRecipeSearchInputs recipeSearchInputs;
+	private JRadioButton lastClickedRadioButton;
+	
+	private String currentDifficulity = null;
+	private String currentMainIngredient = null;
 }

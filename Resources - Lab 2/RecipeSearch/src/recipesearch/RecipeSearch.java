@@ -24,7 +24,7 @@ public class RecipeSearch {
             java.util.logging.Logger.getLogger(RecipeSearchView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         
-        new RecipeSearchView().setVisible(true);
+        new RecipeController();
         
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
             @Override

@@ -148,16 +148,19 @@
                           </Group>
                           <Component id="jSeparator3" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="hardRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="mediumRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="easyRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="vegetarianRadioButton" pref="130" max="32767" attributes="0"/>
-                                  <Component id="meatRadioButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="chickenRadioButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fishRadioButton" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="noMainRadioButton" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="noDifficulityRadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="hardRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mediumRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="easyRadioButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="vegetarianRadioButton" pref="130" max="32767" attributes="0"/>
+                                      <Component id="meatRadioButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="chickenRadioButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="fishRadioButton" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="noMainRadioButton" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -187,7 +190,7 @@
                       <Component id="fishRadioButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="noMainRadioButton" min="-2" pref="57" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -197,9 +200,11 @@
                       <Component id="mediumRadioButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="hardRadioButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="noDifficulityRadioButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="maxPriceSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -209,7 +214,7 @@
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="maxTimeSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -224,13 +229,14 @@
             <Component class="javax.swing.JComboBox" name="cuisineComboBox">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="Svergie"/>
-                    <StringItem index="1" value="Grekland"/>
-                    <StringItem index="2" value="Indien"/>
-                    <StringItem index="3" value="Asien"/>
-                    <StringItem index="4" value="Afrika"/>
-                    <StringItem index="5" value="Frankrike"/>
+                  <StringArray count="7">
+                    <StringItem index="0" value="&lt;ej valt&gt;"/>
+                    <StringItem index="1" value="Svergie"/>
+                    <StringItem index="2" value="Grekland"/>
+                    <StringItem index="3" value="Indien"/>
+                    <StringItem index="4" value="Asien"/>
+                    <StringItem index="5" value="Afrika"/>
+                    <StringItem index="6" value="Frankrike"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -334,6 +340,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="L&#xe4;tt"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="easyRadioButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="mediumRadioButton">
               <Properties>
@@ -342,6 +351,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Medel"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mediumRadioButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="hardRadioButton">
               <Properties>
@@ -350,12 +362,15 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sv&#xe5;rt"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hardRadioButtonMouseClicked"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator3">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Max Pris"/>
+                <Property name="text" type="java.lang.String" value="Max Pris(kr)"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="maxPriceSpinner">
@@ -394,6 +409,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="mainIngredientButtonGroup"/>
                 </Property>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Ej valt"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
@@ -404,9 +420,21 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="noMainRadioButtonMouseExited"/>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="noMainRadioButtonMouseClicked"/>
                 <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="noMainRadioButtonMouseEntered"/>
-                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="noMainRadioButtonMouseExited"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="noDifficulityRadioButton">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="difficulityButtonGroup"/>
+                </Property>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Ej valt"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="noDifficulityRadioButtonMouseClicked"/>
               </Events>
             </Component>
           </SubComponents>
