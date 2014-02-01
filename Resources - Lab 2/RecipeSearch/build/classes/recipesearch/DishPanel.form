@@ -54,11 +54,15 @@
                       <Component id="MiscInfoPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="dishNameLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="231" max="32767" attributes="0"/>
-                          </Group>
                           <Component id="ingredientsDescriptionSplitPanel" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="dishNameLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="163" max="32767" attributes="0"/>
+                              <Component id="matchLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="matchDataLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
@@ -69,7 +73,11 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="dishNameLabel" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="dishNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="matchLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="matchDataLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="ingredientsDescriptionSplitPanel" max="32767" attributes="0"/>
                           </Group>
@@ -202,7 +210,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="dishInfoPanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="74" max="32767" attributes="0"/>
+                          <EmptySpace pref="94" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -230,7 +238,6 @@
                                   <Component id="cuisineLabel" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="difficultyLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="matchLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="priceLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="timeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -241,7 +248,6 @@
                                   <Component id="servingsDataLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="cuisineDataLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="difficultyDataLabel" min="-2" max="-2" attributes="0"/>
-                                  <Component id="matchDataLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="priceDataLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="timeDataLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -268,11 +274,6 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="matchLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="matchDataLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="priceLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="priceDataLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -289,11 +290,6 @@
                     <Component class="javax.swing.JLabel" name="servingsLabel">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Servings"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="matchLabel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="Match"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="cuisineLabel">
@@ -331,11 +327,6 @@
                         <Property name="text" type="java.lang.String" value="L&#xe4;tt"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="matchDataLabel">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" value="75%"/>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JLabel" name="priceDataLabel">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="35kr"/>
@@ -369,6 +360,16 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="matchLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Match"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="matchDataLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="75%"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
