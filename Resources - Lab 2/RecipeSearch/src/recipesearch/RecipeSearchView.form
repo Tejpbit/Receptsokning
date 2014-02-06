@@ -222,6 +222,7 @@
                     <StringItem index="6" value="Frankrike"/>
                   </StringArray>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="V&#xe4;lj vilket land du vill att r&#xe4;tten ska komma ifr&#xe5;n"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuisineComboBoxActionPerformed"/>
@@ -233,6 +234,7 @@
                   <ComponentRef name="mainIngredientButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="K&#xf6;tt"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k efter k&#xf6;ttr&#xe4;tter"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -253,6 +255,7 @@
                   <ComponentRef name="mainIngredientButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fisk"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k efter fiskr&#xe4;tter"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -273,6 +276,7 @@
                   <ComponentRef name="mainIngredientButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Vegetarisk"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k efter vegetariska r&#xe4;tter"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -293,6 +297,7 @@
                   <ComponentRef name="mainIngredientButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Kyckling"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k efter kycklingr&#xe4;tter"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -322,6 +327,7 @@
                   <ComponentRef name="difficulityButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="L&#xe4;tt"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k efter l&#xe4;ttillagade r&#xe4;tter"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="easyRadioButtonMouseClicked"/>
@@ -333,6 +339,7 @@
                   <ComponentRef name="difficulityButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Mellan"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k efter mellansv&#xe5;ra r&#xe4;tter"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mediumRadioButtonMouseClicked"/>
@@ -344,6 +351,7 @@
                   <ComponentRef name="difficulityButtonGroup"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Sv&#xe5;r"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k efter sv&#xe5;ra r&#xe4;tter"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="hardRadioButtonMouseClicked"/>
@@ -361,6 +369,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="5" type="number"/>
                 </Property>
+                <Property name="toolTipText" type="java.lang.String" value="Maxpris f&#xf6;r r&#xe4;tten"/>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="maxPriceSpinnerStateChanged"/>
@@ -376,7 +385,7 @@
                 <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
                   <SpinnerModel initial="0" maximum="150" minimum="0" numberType="java.lang.Integer" stepSize="10" type="number"/>
                 </Property>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
+                <Property name="toolTipText" type="java.lang.String" value="Max tillagningstids f&#xf6;r r&#xe4;tten"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
                   <Color id="Standardmark&#xf6;r"/>
                 </Property>
@@ -402,6 +411,7 @@
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Ej valt"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k p&#xe5; alla sorters r&#xe4;tter"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="null"/>
                 </Property>
@@ -423,6 +433,7 @@
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Ej valt"/>
+                <Property name="toolTipText" type="java.lang.String" value="S&#xf6;k p&#xe5; alla sv&#xe5;righeter av r&#xe4;tter"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="noDifficulityRadioButtonMouseClicked"/>

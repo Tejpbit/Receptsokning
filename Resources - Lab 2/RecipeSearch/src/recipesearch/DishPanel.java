@@ -329,6 +329,7 @@ public class DishPanel extends javax.swing.JPanel{
         dishScrollPane.setViewportView(scrollablePanel);
 
         ExpandButton.setText("Utöka recept");
+        ExpandButton.setToolTipText("Tryck här för att se den detaljerade vyn av receptet");
         ExpandButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExpandButtonActionPerformed(evt);

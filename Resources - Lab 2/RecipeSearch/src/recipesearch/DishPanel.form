@@ -377,6 +377,7 @@
     <Component class="javax.swing.JToggleButton" name="ExpandButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ut&#xf6;ka recept"/>
+        <Property name="toolTipText" type="java.lang.String" value="Tryck h&#xe4;r f&#xf6;r att se den detaljerade vyn av receptet"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExpandButtonActionPerformed"/>

@@ -23,6 +23,8 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
 		
         initComponents();
 		
+		setTitle("Receptsökning");
+		
         lastClickedRadioButton = noMainRadioButton;
         meatRadioButton.setBorder(standardBorder);
         vegetarianRadioButton.setBorder(standardBorder);
@@ -81,6 +83,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         searchListSplitPane.setDividerLocation(160);
 
         cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<ej valt>", "Sverige", "Grekland", "Indien", "Asien", "Afrika", "Frankrike" }));
+        cuisineComboBox.setToolTipText("Välj vilket land du vill att rätten ska komma ifrån");
         cuisineComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cuisineComboBoxActionPerformed(evt);
@@ -89,6 +92,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
 
         mainIngredientButtonGroup.add(meatRadioButton);
         meatRadioButton.setText("Kött");
+        meatRadioButton.setToolTipText("Sök efter kötträtter");
         meatRadioButton.setBorder(null);
         meatRadioButton.setBorderPainted(true);
         meatRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/meat_icon.png"))); // NOI18N
@@ -106,6 +110,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
 
         mainIngredientButtonGroup.add(fishRadioButton);
         fishRadioButton.setText("Fisk");
+        fishRadioButton.setToolTipText("Sök efter fiskrätter");
         fishRadioButton.setBorder(null);
         fishRadioButton.setBorderPainted(true);
         fishRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/fish_icon.png"))); // NOI18N
@@ -123,6 +128,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
 
         mainIngredientButtonGroup.add(vegetarianRadioButton);
         vegetarianRadioButton.setText("Vegetarisk");
+        vegetarianRadioButton.setToolTipText("Sök efter vegetariska rätter");
         vegetarianRadioButton.setBorder(null);
         vegetarianRadioButton.setBorderPainted(true);
         vegetarianRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/tree_icon.png"))); // NOI18N
@@ -140,6 +146,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
 
         mainIngredientButtonGroup.add(chickenRadioButton);
         chickenRadioButton.setText("Kyckling");
+        chickenRadioButton.setToolTipText("Sök efter kycklingrätter");
         chickenRadioButton.setBorder(null);
         chickenRadioButton.setBorderPainted(true);
         chickenRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/Chicken_icon.png"))); // NOI18N
@@ -159,6 +166,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
 
         difficulityButtonGroup.add(easyRadioButton);
         easyRadioButton.setText("Lätt");
+        easyRadioButton.setToolTipText("Sök efter lättillagade rätter");
         easyRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 easyRadioButtonMouseClicked(evt);
@@ -167,6 +175,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
 
         difficulityButtonGroup.add(mediumRadioButton);
         mediumRadioButton.setText("Mellan");
+        mediumRadioButton.setToolTipText("Sök efter mellansvåra rätter");
         mediumRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mediumRadioButtonMouseClicked(evt);
@@ -175,6 +184,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
 
         difficulityButtonGroup.add(hardRadioButton);
         hardRadioButton.setText("Svår");
+        hardRadioButton.setToolTipText("Sök efter svåra rätter");
         hardRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 hardRadioButtonMouseClicked(evt);
@@ -184,6 +194,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         jLabel3.setText("Max Pris(kr)");
 
         maxPriceSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(0), Integer.valueOf(0), null, Integer.valueOf(5)));
+        maxPriceSpinner.setToolTipText("Maxpris för rätten");
         maxPriceSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 maxPriceSpinnerStateChanged(evt);
@@ -193,7 +204,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         jLabel4.setText("Max Tid(m)");
 
         maxTimeSpinner.setModel(new javax.swing.SpinnerNumberModel(0, 0, 150, 10));
-        maxTimeSpinner.setToolTipText("");
+        maxTimeSpinner.setToolTipText("Max tillagningstids för rätten");
         maxTimeSpinner.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         maxTimeSpinner.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -208,6 +219,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         mainIngredientButtonGroup.add(noMainRadioButton);
         noMainRadioButton.setSelected(true);
         noMainRadioButton.setText("Ej valt");
+        noMainRadioButton.setToolTipText("Sök på alla sorters rätter");
         noMainRadioButton.setBorder(null);
         noMainRadioButton.setBorderPainted(true);
         noMainRadioButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recipesearch/resources/no_choice.png"))); // NOI18N
@@ -226,6 +238,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         difficulityButtonGroup.add(noDifficulityRadioButton);
         noDifficulityRadioButton.setSelected(true);
         noDifficulityRadioButton.setText("Ej valt");
+        noDifficulityRadioButton.setToolTipText("Sök på alla svårigheter av rätter");
         noDifficulityRadioButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 noDifficulityRadioButtonMouseClicked(evt);
