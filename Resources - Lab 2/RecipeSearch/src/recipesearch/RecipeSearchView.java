@@ -45,7 +45,6 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         difficulityButtonGroup = new javax.swing.ButtonGroup();
         searchListSplitPane = new javax.swing.JSplitPane();
         searchPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         cuisineComboBox = new javax.swing.JComboBox();
         meatRadioButton = new javax.swing.JRadioButton();
         fishRadioButton = new javax.swing.JRadioButton();
@@ -80,9 +79,6 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         setName("applicationFrame"); // NOI18N
 
         searchListSplitPane.setDividerLocation(160);
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Sök");
 
         cuisineComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<ej valt>", "Sverige", "Grekland", "Indien", "Asien", "Afrika", "Frankrike" }));
         cuisineComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -268,7 +264,6 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(65, 65, 65))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(searchPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -285,8 +280,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchPanelLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cuisineComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -326,7 +320,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
                 .addGroup(searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(maxTimeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         searchListSplitPane.setLeftComponent(searchPanel);
@@ -371,7 +365,7 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchListSplitPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(searchListSplitPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 643, Short.MAX_VALUE)
         );
 
         pack();
@@ -567,7 +561,6 @@ public class RecipeSearchView extends javax.swing.JFrame implements ISetMainView
     private javax.swing.JRadioButton fishRadioButton;
     private javax.swing.JRadioButton hardRadioButton;
     private javax.swing.JMenu helpMenu;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
